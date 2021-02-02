@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const jwt = require('jsonwebtoken');
 let User = require('../models/user.model');
 
 router.route('/').get((req, res) => {
@@ -28,6 +29,32 @@ router.route('/:id').get((req, res) => {
     .then((user) => res.json(`showing the user, ${user.username}`))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
+
+router.post('/login'),
+  async (req, res) => {
+    try {
+      const { username } = req.body;
+      if (!username)
+        return res.status(400).json({ msg: 'username must be entered' });
+
+      const user = await User.findOne({ username: username });
+      if (!user)
+        return res
+          .status(400)
+          .json({ msg: 'No account with this username is registered.' });
+
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+      res.json({
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+        },
+      });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  };
 
 router.route('/update/:id').post((req, res) => {
   User.findById(req.params.id)
