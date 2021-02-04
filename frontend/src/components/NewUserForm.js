@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-// import axios from 'axios';
+import axios from 'axios';
+import UserContext from '../context/UserContent';
+import { useHistory } from 'react-router-dom';
 
 const NewUserForm = (props) => {
   const [username, setUsername] = useState('');
@@ -9,16 +11,40 @@ const NewUserForm = (props) => {
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
 
-  const onFormSubmit = (event) => {
+  const { setUserData } = useContext(UserContext);
+  const history = useHistory();
+
+  // const onFormSubmit = (event) => {
+  const onFormSubmit = async (event) => {
     event.preventDefault();
+    const newUser = { username, skill, availability, bio, image };
+    const loginRes = await axios.post(
+      'http://localhost:5000/users/add',
+      newUser
+    );
 
-    // props.addCardCallback({ text, emoji });
+    if (loginRes.status == 200) {
+      const loginRes = await axios.post(
+        'http://localhost:5000/users/login',
+        newUser
+      );
+      setUserData({
+        token: loginRes.data.token,
+        user: loginRes.data.user,
+      });
+      localStorage.setItem('auth-token', loginRes.data.token);
+      history.push('/');
+    }
 
-    setUsername('');
-    setSkill('');
-    setAvailability('');
-    setBio('');
-    setImage('');
+    // const loginRes = await axios.post('http://localhost:5000/users/add', {
+    //   username,
+    // });
+    // setUserData({
+    //   token: loginRes.data.token,
+    //   user: loginRes.data.user,
+    // });
+    // localStorage.setItem('auth-token', loginRes.data.token);
+    // history.push('/');
   };
 
   return (
