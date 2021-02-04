@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
@@ -10,6 +10,8 @@ const NewUserForm = (props) => {
   const [availability, setAvailability] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
+  const [city, setCity] = useState('');
+  const [zipcode, setZipcode] = useState('');
 
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
@@ -17,13 +19,21 @@ const NewUserForm = (props) => {
   // const onFormSubmit = (event) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
-    const newUser = { username, skill, availability, bio, image };
+    const newUser = {
+      username,
+      skill,
+      availability,
+      city,
+      zipcode,
+      bio,
+      image,
+    };
     const loginRes = await axios.post(
       'http://localhost:5000/users/add',
       newUser
     );
 
-    if (loginRes.status == 200) {
+    if (loginRes.status === 200) {
       const loginRes = await axios.post(
         'http://localhost:5000/users/login',
         newUser
@@ -84,6 +94,26 @@ const NewUserForm = (props) => {
         />
       </div>
       <div>
+        <label htmlFor="city">City:</label>
+        <input
+          id="city"
+          name="city"
+          onChange={(event) => setCity(event.target.value)}
+          value={city}
+          className="city"
+        />
+      </div>
+      <div>
+        <label htmlFor="zipcode">Zipcode:</label>
+        <input
+          id="zipcode"
+          name="zipcode"
+          onChange={(event) => setZipcode(event.target.value)}
+          value={zipcode}
+          className="zipcode"
+        />
+      </div>
+      <div>
         <label htmlFor="bio">About:</label>
         <input
           id="bio"
@@ -94,7 +124,7 @@ const NewUserForm = (props) => {
         />
       </div>
       <div>
-        <label htmlFor="image">Skill Level:</label>
+        <label htmlFor="image">Image:</label>
         <input
           id="image"
           name="image"

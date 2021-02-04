@@ -6,9 +6,9 @@ import { useHistory } from 'react-router-dom';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
-
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
+
   const onFormSubmit = async (event) => {
     event.preventDefault();
     const loginUser = { username };
