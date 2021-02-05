@@ -9,6 +9,7 @@ const AuthOptions = () => {
 
   const login = () => history.push('/login');
   const register = () => history.push('/register');
+  // const matchList = () => history.push('/matches'); //new
   const logout = () => {
     setUserData({
       token: undefined,
@@ -20,7 +21,10 @@ const AuthOptions = () => {
   return (
     <div>
       {userData.user ? (
-        <button onClick={logout}> Logout </button>
+        <>
+          <button onClick={logout}> Logout </button>
+          {/* <button onClick={matchList}> Find Matches </button> */}
+        </>
       ) : (
         <>
           <button onClick={login}> Log in </button>

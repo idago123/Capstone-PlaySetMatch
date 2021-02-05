@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import NewUserForm from './components/NewUserForm';
 import Login from './components/Login';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Matches from './components/Matches';
 import UserContent from './context/UserContent';
 import Axios from 'axios';
+
 //match function, gets collection of user data, save matches field
 
 function App() {
@@ -19,8 +20,8 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [matches, setMatches] = useState([]);
   const [userData, setUserData] = useState({
-    token: undefined,
-    user: undefined,
+    token: null,
+    user: null,
   });
   // check to see if user is logged in
   useEffect(() => {
@@ -60,20 +61,26 @@ function App() {
     };
     usersList();
   }, []);
-  console.log(userData.user);
+  // console.log(userData.user);
 
-  const matchUsers = () => {
-    Axios.get(`http://localhost:5000/users/matches/${userData.id}`)
+  const matchUsers = useCallback((user) => {
+    // console.log(userData.user);
+    Axios.get(`http://localhost:5000/users/matches/${user.id}`)
       .then((response) => {
         const apiMatchUsers = response.data;
         setMatches(apiMatchUsers);
-        console.log(`apimatch users is: ${apiMatchUsers}`);
+        // console.log(`apimatch users is: ${apiMatchUsers}`);
       })
       .catch((error) => {
         setErrorMessage(error.message);
       });
-  };
-  console.log(matchUsers);
+  }, []);
+
+  useEffect(() => {
+    if (userData.user) {
+      matchUsers(userData.user);
+    }
+  }, [userData, matchUsers]);
   //  if (userData.token) {
   //     // if availability, skill level, city or zipcode match, store in a new variable and then return a list of users
   //   }
@@ -110,18 +117,23 @@ function App() {
   // };
 
   // matchUsers();
+  // console.log(matches);
   return (
     <>
       <BrowserRouter>
         <UserContent.Provider value={{ userData, setUserData }}>
           <Header />
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               <Home userMatches={matches} />
-            </Route>
+            </Route> */}
+            <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/Register" component={NewUserForm} />
             {/* <Route path="/Matches" component={Matches} /> */}
+            <Route exact path="/Matches">
+              <Matches userMatches={matches} />
+            </Route>
           </Switch>
         </UserContent.Provider>
       </BrowserRouter>

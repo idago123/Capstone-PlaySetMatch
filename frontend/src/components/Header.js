@@ -6,7 +6,10 @@ const Header = () => {
   return (
     <div>
       <Link to="/">
-        <h1>Home </h1>
+        <h1>PlaySetMatch </h1>
+      </Link>
+      <Link to="/Matches">
+        <h1> Find Matches</h1>
       </Link>
       <AuthOptions />
     </div>
