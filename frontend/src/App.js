@@ -67,6 +67,7 @@ function App() {
       .then((response) => {
         const apiMatchUsers = response.data;
         setMatches(apiMatchUsers);
+        console.log(`apimatch users is: ${apiMatchUsers}`);
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -115,7 +116,9 @@ function App() {
         <UserContent.Provider value={{ userData, setUserData }}>
           <Header />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/">
+              <Home userMatches={matches} />
+            </Route>
             <Route path="/login" component={Login} />
             <Route path="/Register" component={NewUserForm} />
             {/* <Route path="/Matches" component={Matches} /> */}

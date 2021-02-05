@@ -1,11 +1,22 @@
-// import React, { useEffect, useState, useContext } from 'react';
-// import PropTypes from 'prop-types';
-// import axios from 'axios';
-// import UserContext from '../context/UserContent';
-// import { useHistory } from 'react-router-dom';
+import React from 'react';
 
-// const Matches = () => {};
-// const { setUserData } = useContext(UserContext);
-// const history = useHistory();
+const Matches = (props) => {
+  return (
+    <div className="match">
+      <ul className="match-details">
+        <li>Username: {props.username}</li>
+        <li>Bio: {props.bio}</li>
+        <li>Skill level {props.skillLevel}</li>
+        <li>Availability: {props.availability}</li>
+        <li>City: {props.city}</li>
+        <li>Zipcode: {props.zipcode}</li>
+        <li>
+          Photo:
+          <img src={props.image} alt="user photo" />
+        </li>
+      </ul>
+    </div>
+  );
+};
 
-// export default Matches;
+export default Matches;
