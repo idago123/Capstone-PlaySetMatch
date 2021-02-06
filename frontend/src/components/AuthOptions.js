@@ -19,7 +19,7 @@ const AuthOptions = () => {
   };
 
   return (
-    <div>
+    <nav className="auth-options">
       {userData.user ? (
         <>
           <button onClick={logout}> Logout </button>
@@ -31,7 +31,7 @@ const AuthOptions = () => {
           <button onClick={register}> Register</button>
         </>
       )}
-    </div>
+    </nav>
   );
 };
 

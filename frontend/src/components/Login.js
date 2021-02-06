@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
+import { Form, Button, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
@@ -25,24 +27,47 @@ const Login = (props) => {
   };
 
   return (
-    <form
-      className="new-user-form"
-      onSubmit={onFormSubmit}
-      data-testid="NewUserForm--form"
-    >
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          id="username"
-          name="username"
-          onChange={(event) => setUsername(event.target.value)}
-          value={username}
-          className="username"
-        />
-      </div>
+    <Container>
+      <Form
+        className="new-user-form"
+        onSubmit={onFormSubmit}
+        data-testid="NewUserForm--form"
+      >
+        <Form.Group controlId="formUsername">
+          {/* <div> */}
+          <Form.Label htmlFor="username">Username:</Form.Label>
+          <Form.Control
+            id="username"
+            name="username"
+            onChange={(event) => setUsername(event.target.value)}
+            value={username}
+            className="username"
+          />
+          {/* </div> */}
+        </Form.Group>
+        <Button variant="secondary" type="submit" value="Log In">
+          Log In
+        </Button>
+      </Form>
+    </Container>
+    // <form
+    //   className="new-user-form"
+    //   onSubmit={onFormSubmit}
+    //   data-testid="NewUserForm--form"
+    // >
+    //   <div>
+    //     <label htmlFor="username">Username:</label>
+    //     <input
+    //       id="username"
+    //       name="username"
+    //       onChange={(event) => setUsername(event.target.value)}
+    //       value={username}
+    //       className="username"
+    //     />
+    //   </div>
 
-      <input type="submit" value="Log In" />
-    </form>
+    //   <input type="submit" value="Log In" />
+    // </form>
   );
 };
 

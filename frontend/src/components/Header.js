@@ -4,15 +4,15 @@ import AuthOptions from './AuthOptions';
 
 const Header = () => {
   return (
-    <div>
+    <header id="header">
       <Link to="/">
-        <h1>PlaySetMatch </h1>
+        <h1 className="title"> PlaySetMatch </h1>
       </Link>
       <Link to="/Matches">
-        <h1> Find Matches</h1>
+        <h2> Find Matches</h2>
       </Link>
       <AuthOptions />
-    </div>
+    </header>
   );
 };
 

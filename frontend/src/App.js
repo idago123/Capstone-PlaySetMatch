@@ -12,7 +12,7 @@ import Home from './components/Home';
 import Matches from './components/Matches';
 import UserContent from './context/UserContent';
 import Axios from 'axios';
-
+import './components/style.css';
 //match function, gets collection of user data, save matches field
 
 function App() {

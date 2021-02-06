@@ -41,6 +41,6 @@ import React, { useEffect, useState, useContext } from 'react';
 // export default Home;
 
 const Home = (props) => {
-  return <h1> this is homepage </h1>;
+  return <h1> this is the homepage </h1>;
 };
 export default Home;
