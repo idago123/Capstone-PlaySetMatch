@@ -3,19 +3,39 @@ const jwt = require('jsonwebtoken');
 let User = require('../models/user.model');
 
 router.route('/').get((req, res) => {
+  console.log('test100003');
   User.find()
     .then((users) => res.json(users))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
+  console.log('test23');
   const username = req.body.username;
-  const newUser = new User({ username });
-
+  const availability = req.body.availability;
+  const zipcode = req.body.zipcode;
+  const city = req.body.city;
+  const image = req.body.image;
+  const skillLevel = req.body.skillLecel;
+  const newUser = new User({
+    username,
+    availability,
+    zipcode,
+    city,
+    image,
+    skillLevel,
+  });
+  console.log(newUser);
   newUser
     .save()
-    .then(() => res.json(`${user.username} added`))
-    .catch((err) => res.status(400).json('Error: ' + err));
+    .then(() => res.json(`${newUser.username} added`))
+    // .catch((err) => {
+    //   throw err;
+    // });
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json('Error: ' + err);
+    });
 });
 
 router.route('/:id').delete((req, res) => {
@@ -30,31 +50,37 @@ router.route('/:id').get((req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.post('/login'),
-  async (req, res) => {
-    try {
-      const { username } = req.body;
-      if (!username)
-        return res.status(400).json({ msg: 'username must be entered' });
+// router.post('/login'), async (req, res) => {
+router.route('/login').post(async (req, res) => {
+  try {
+    const { username } = req.body;
+    if (!username)
+      return res.status(400).json({ msg: 'username must be entered' });
 
-      const user = await User.findOne({ username: username });
-      if (!user)
-        return res
-          .status(400)
-          .json({ msg: 'No account with this username is registered.' });
+    const user = await User.findOne({ username: username });
+    if (!user)
+      return res
+        .status(400)
+        .json({ msg: 'No account with this username is registered.' });
 
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      res.json({
-        token,
-        user: {
-          id: user._id,
-          username: user.username,
-        },
-      });
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  };
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        username: user.username, //new stuff below
+        availability: user.availability,
+        skillLevel: user.skillLevel,
+        city: user.city,
+        zipcode: user.zipcode,
+        image: user.image,
+        bio: user.bio,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 router.route('/update/:id').post((req, res) => {
   User.findById(req.params.id)
@@ -75,4 +101,40 @@ router.route('/update/:id').post((req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
+router.route('/tokenIsValid').post(async (req, res) => {
+  try {
+    const token = req.header('x-auth-token');
+    if (!token) return res.json(false);
+
+    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    if (!verified) return res.json(false);
+
+    const user = await User.findById(verified.id);
+    if (!user) return res.json(false);
+
+    return res.json(true);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.route('/matches/:id').get((req, res) => {
+  const userPromise = User.findById(req.params.id);
+  const usersPromise = User.find();
+  Promise.all([userPromise, usersPromise])
+    .then(([user, users]) => {
+      console.log(user, users);
+      const matches = [];
+      for (const u of users) {
+        if (u.id === user.id) {
+          continue;
+        }
+        if (u.zipcode === user.zipcode) {
+          matches.push(u);
+        }
+      }
+      res.status(200).json(matches);
+    })
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
 module.exports = router;
