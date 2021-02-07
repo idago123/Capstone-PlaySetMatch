@@ -9,7 +9,7 @@ const Header = () => {
         <h1 className="title"> PlaySetMatch </h1>
       </Link>
       <Link to="/Matches">
-        <h2> Find Matches</h2>
+        <h2 className="matchtitle"> Find Matches</h2>
       </Link>
       <AuthOptions />
     </header>

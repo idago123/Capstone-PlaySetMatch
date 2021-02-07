@@ -10,6 +10,8 @@ import AuthOptions from './components/AuthOptions';
 import Header from './components/Header';
 import Home from './components/Home';
 import Matches from './components/Matches';
+import GameResultForm from './components/GameResultForm';
+
 import UserContent from './context/UserContent';
 import Axios from 'axios';
 import './components/style.css';
@@ -61,7 +63,6 @@ function App() {
     };
     usersList();
   }, []);
-  // console.log(userData.user);
 
   const matchUsers = useCallback((user) => {
     // console.log(userData.user);
@@ -75,6 +76,7 @@ function App() {
         setErrorMessage(error.message);
       });
   }, []);
+  console.log(userData);
 
   useEffect(() => {
     if (userData.user) {
@@ -118,6 +120,7 @@ function App() {
 
   // matchUsers();
   // console.log(matches);
+
   return (
     <>
       <BrowserRouter>
@@ -130,7 +133,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/Register" component={NewUserForm} />
-            {/* <Route path="/Matches" component={Matches} /> */}
+            <Route path="/ResultsForm" component={GameResultForm} />
             <Route exact path="/Matches">
               <Matches userMatches={matches} />
             </Route>

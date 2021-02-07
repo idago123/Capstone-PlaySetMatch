@@ -9,6 +9,8 @@ const AuthOptions = () => {
 
   const login = () => history.push('/login');
   const register = () => history.push('/register');
+  const results = () => history.push('/ResultsForm');
+
   // const matchList = () => history.push('/matches'); //new
   const logout = () => {
     setUserData({
@@ -23,7 +25,7 @@ const AuthOptions = () => {
       {userData.user ? (
         <>
           <button onClick={logout}> Logout </button>
-          {/* <button onClick={matchList}> Find Matches </button> */}
+          <button onClick={results}> Record Your Match </button>
         </>
       ) : (
         <>

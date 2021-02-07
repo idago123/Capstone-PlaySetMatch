@@ -61,6 +61,14 @@ ul {
   background-color: #83c5be;
 }
 
+#header .matchtitle {
+  height: 100%;
+  display: flex;
+  color: white;
+  font-size: 1.1rem;
+  border-color: #ccf1ee;
+  padding: 0 1rem;
+}
 /* MATCH COMPONENT */
 
 /* .match {
