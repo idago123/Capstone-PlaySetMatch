@@ -11,6 +11,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Matches from './components/Matches';
 import GameResultForm from './components/GameResultForm';
+import Ranking from './components/Ranking';
 
 import UserContent from './context/UserContent';
 import Axios from 'axios';
@@ -82,44 +83,7 @@ function App() {
     if (userData.user) {
       matchUsers(userData.user);
     }
-  }, [userData, matchUsers]);
-  //  if (userData.token) {
-  //     // if availability, skill level, city or zipcode match, store in a new variable and then return a list of users
-  //   }
-  //     const userMatches = userCollection.map((user, i) => {
-  //       if (userData.token) {
-  //       }
-
-  //       return (
-  //         <ul>
-  //           <li>username={user.username}</li>
-  //             <li>overview={user.bio}</li>
-
-  //         </ul>
-  //       );
-  //   }
-
-  // };
-  // }, []);
-
-  // const matchUsers = () => {
-  //   useEffect(() => {
-  //     axios
-  //       .get('http://localhost:5000/users')
-  //       .then((response) => {
-  //         const apiListUsers = response.data;
-  //         setUserCollection(apiListUsers);
-  //       })
-  //       .catch((error) => {
-  //         setErrorMessage(error.message);
-  //       });
-  //   }, []);
-
-  //   console.log(userCollection);
-  // };
-
-  // matchUsers();
-  // console.log(matches);
+  }, [userData, matchUsers]); //only execute this function if the value of one of my dependencies is different from the previous render
 
   return (
     <>
@@ -134,6 +98,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/Register" component={NewUserForm} />
             <Route path="/ResultsForm" component={GameResultForm} />
+            <Route path="/Rankings" component={Ranking} />
             <Route exact path="/Matches">
               <Matches userMatches={matches} />
             </Route>

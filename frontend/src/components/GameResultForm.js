@@ -6,9 +6,10 @@ import { useHistory } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
 
 const GameResultForm = (props) => {
-  const [username, setUser] = useState('');
+  const [username, setUsername] = useState('');
   const [winner, setWinner] = useState('');
   const [date, setDate] = useState('');
+  const [tennisBuddy, setTennisBuddy] = useState('');
 
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
@@ -16,18 +17,34 @@ const GameResultForm = (props) => {
   // const onFormSubmit = (event) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
-
+    // ADD TENNIS BUDDY FIELD TO BACKEND AND MAYBE SCORE CARD
+    // HOW TO IMPLEMENT CALENDAR COMPONENT THAT CONTAINS PAST AND FUTURE GAMES?
+    // for chat messages: back end model - only contain the user field (the user recieving messages) and the value can be an array of hashes. the hashes key would be: from_user, date (date.now), and message string.
     const newResult = {
       username: userData.user.username,
       winner,
       date,
+      tennisBuddy,
     };
-    const loginRes = await axios
-      .post('http://localhost:5000/match/add', newResult)
-      .then((response) => {})
-      .catch((err) => {
-        console.log(err.response);
-      });
+
+    // const loginRes = await axios
+    //   .post('http://localhost:5000/match/add', newResult)
+    //   .then((response) => {})
+    //   .catch((err) => {
+    // console.log(err.response);
+    //   });
+    try {
+      const loginRes = await axios.post(
+        'http://localhost:5000/match/add',
+        newResult
+      );
+      setTennisBuddy('');
+      setWinner('');
+      setDate('');
+    } catch (err) {
+      console.log(err.response);
+    }
+
     console.log(newResult);
   };
 
@@ -37,16 +54,16 @@ const GameResultForm = (props) => {
       onSubmit={onFormSubmit}
       data-testid="NewUserForm--form"
     >
-      {/* <div>
-        <label htmlFor="user">Username:</label>
+      <div>
+        <label htmlFor="buddy">Tennis Buddy:</label>
         <input
-          id="user"
-          name="user"
-          onChange={(event) => setUser(event.target.value)}
-          value={username}
-          className="user"
+          id="buddy"
+          name="buddy"
+          onChange={(event) => setTennisBuddy(event.target.value)}
+          value={tennisBuddy}
+          className="buddy"
         />
-      </div> */}
+      </div>
       <div>
         <label htmlFor="winner">Winner:</label>
         <input

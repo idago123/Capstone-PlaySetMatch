@@ -11,6 +11,9 @@ const Header = () => {
       <Link to="/Matches">
         <h2 className="matchtitle"> Find Matches</h2>
       </Link>
+      <Link to="/Rankings">
+        <h1 className="rankings"> Rankings </h1>
+      </Link>
       <AuthOptions />
     </header>
   );

@@ -10,46 +10,36 @@ const Ranking = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
+  /* {
+    'jordan': 2
+    'ida': 5
+}*/
 
   const gameResultsList = async () => {
-    axios
-      .get('http://localhost:5000/match')
-      .then((response) => {
-        const apiListGames = response.data;
-        setResults(apiListGames);
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
+    try {
+      const apiListGames = await axios.get('http://localhost:5000/match');
+
+      const rankings = apiListGames.data.reduce((wins, match) => {
+        const winner = match.winner;
+        if (wins[winner]) {
+          wins[winner] += 1;
+        } else {
+          wins[winner] = 1;
+        }
+        return wins;
+      }, {});
+      console.log(rankings);
+      setResults(rankings);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error.message);
+    }
   };
+  useEffect(() => {
+    gameResultsList();
+  }, []);
 
-  const userMatchesList = props.userMatches.map((user, i) => {
-    console.log(user);
-    return (
-      <li key={i}>
-        <Match
-          username={user.username}
-          availability={user.availability}
-          skillLevel={user.skillLevel}
-          bio={user.bio}
-          city={user.city}
-          zipcode={user.zipcode}
-        />
-      </li>
-    );
-  });
-  // return <ul className="match-list">{userMatchesList}</ul>;
-
-  return (
-    <div>
-      {/* {(userData.user && (props.userMatches.length > 0)) ( */}
-
-      {props.userMatches.length > 0 ? (
-        userMatchesList
-      ) : (
-        <h1> No matches found</h1>
-      )}
-    </div>
-  );
+  console.log({ results });
+  return <div>{JSON.stringify(results)}</div>;
 };
-export default Matches;
+export default Ranking;
