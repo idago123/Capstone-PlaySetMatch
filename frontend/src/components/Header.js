@@ -14,6 +14,9 @@ const Header = () => {
       <Link to="/Rankings">
         <h1 className="rankings"> Rankings </h1>
       </Link>
+      <Link to="/Calendar">
+        <h1 className="calendar"> Calendar </h1>
+      </Link>
       <AuthOptions />
     </header>
   );
