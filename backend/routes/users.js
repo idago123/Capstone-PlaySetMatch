@@ -16,7 +16,7 @@ router.route('/add').post((req, res) => {
   const zipcode = req.body.zipcode;
   const city = req.body.city;
   const image = req.body.image;
-  const skillLevel = req.body.skillLecel;
+  const skillLevel = req.body.skillLevel;
   const newUser = new User({
     username,
     availability,
