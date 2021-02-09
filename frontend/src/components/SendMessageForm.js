@@ -46,6 +46,7 @@ const SendMessageForm = (props) => {
   //   }, []);
   const onFormSubmit = async (event) => {
     event.preventDefault();
+    console.log(props.toUserId);
     // setInbox([...inbox, {'date': Date.now(), 'from_username': userData.user.username, 'message': message}])
     // setComposed([...composed, {'date': Date.now(), 'to_user': props.toUserId, 'message': message}])
 
@@ -61,6 +62,7 @@ const SendMessageForm = (props) => {
       message: message,
       to: props.toUserId,
     });
+
     // const updateFromUser = await axios.post(
     //     `http://localhost:5000/users/update/${userData.user.id}`,
     //     fromUser

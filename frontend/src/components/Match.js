@@ -2,6 +2,7 @@ import React from 'react';
 import SendMessageForm from './SendMessageForm';
 
 const Match = (props) => {
+  // console.log(props);
   return (
     <div className="match">
       <ul className="match-details">

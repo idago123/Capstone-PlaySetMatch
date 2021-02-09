@@ -13,9 +13,9 @@ const Matches = (props) => {
   const { userData, setUserData } = useContext(UserContext);
   //   return <h1> homepage</h1>;
   const userMatchesList = props.userMatches.map((user, i) => {
-    console.log(user);
+    // console.log(user._id);
     return (
-      <li key={user.id}>
+      <li key={user._id}>
         <Match
           username={user.username}
           availability={user.availability}
@@ -23,7 +23,7 @@ const Matches = (props) => {
           bio={user.bio}
           city={user.city}
           zipcode={user.zipcode}
-          id={user.id}
+          id={user._id}
         />
       </li>
     );
