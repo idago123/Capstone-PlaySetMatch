@@ -16,6 +16,8 @@ import Calendar from './components/Calendar';
 import UserContent from './context/UserContent';
 import Axios from 'axios';
 import './components/style.css';
+import Sidebar from './components/Sidebar';
+
 //match function, gets collection of user data, save matches field
 
 function App() {
@@ -100,6 +102,7 @@ function App() {
             <Route path="/ResultsForm" component={GameResultForm} />
             <Route path="/Rankings" component={Ranking} />
             <Route path="/Calendar" component={Calendar} />
+            <Route path="/Chat" component={Sidebar} />
 
             <Route exact path="/Matches">
               <Matches userMatches={matches} />
