@@ -17,6 +17,7 @@ router.route('/add').post((req, res) => {
   const city = req.body.city;
   const image = req.body.image;
   const skillLevel = req.body.skillLevel;
+
   const newUser = new User({
     username,
     availability,
@@ -92,7 +93,7 @@ router.route('/update/:id').post((req, res) => {
       user.zipcode = req.body.zipcode;
       user.image = req.body.image;
       user.bio = req.body.bio;
-
+      // user.inbox = req.body.inbox;
       user
         .save()
         .then(() => res.json(`${user.username} updated!!!!`))
@@ -135,6 +136,29 @@ router.route('/matches/:id').get((req, res) => {
       }
       res.status(200).json(matches);
     })
+    .catch((err) => res.status(400).json('Error: ' + err));
+});
+
+router.route('/message').post((req, res) => {
+  const senderPromise = User.findById(req.body.from);
+  const receiverPromise = User.findById(req.body.to);
+  Promise.all([senderPromise, receiverPromise])
+
+    .then(([sender, receiver]) => {
+      console.log(req.body);
+      // console.log(receiver);
+
+      sender.sentMsg.push(req.body);
+      console.log(sender);
+
+      receiver.inbox.push(req.body);
+      console.log(receiver);
+      sender.save();
+      receiver.save();
+      // receiver.save().then((data) => res.json(data));
+      // return Promise.all([sender.save, receiver.save]);
+    })
+    .then((data) => res.json(data))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 module.exports = router;

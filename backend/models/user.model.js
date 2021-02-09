@@ -25,10 +25,13 @@ const userSchema = new Schema({
   bio: {
     type: String,
   },
-  // messages: {
-  //   type: Array,
-  // [{date: Date.now, sent_user: userdata.user.id, message: ''}]
-  // },
+  inbox: {
+    type: Array,
+    // [{date: Date.now, sent_user: userdata.user.id, message: ''}]
+  },
+  sentMsg: {
+    type: Array,
+  },
 });
 
 const User = mongoose.model('User', userSchema);
