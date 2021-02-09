@@ -18,7 +18,7 @@ const Ranking = () => {
   const gameResultsList = async () => {
     try {
       const apiListGames = await axios.get('http://localhost:5000/match');
-
+      // console.log(apiListGames);
       const rankings = apiListGames.data.reduce((wins, match) => {
         const winner = match.winner;
         if (wins[winner]) {

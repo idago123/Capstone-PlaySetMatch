@@ -1,4 +1,5 @@
 import React from 'react';
+import SendMessageForm from './SendMessageForm';
 
 const Match = (props) => {
   return (
@@ -15,6 +16,7 @@ const Match = (props) => {
           <img src={props.image} alt="user photo" />
         </li>
       </ul>
+      <SendMessageForm toUserId={props.id} />
     </div>
   );
 };
