@@ -10,6 +10,9 @@ const AuthOptions = () => {
   const login = () => history.push('/login');
   const register = () => history.push('/register');
   const results = () => history.push('/ResultsForm');
+  const ranking = () => history.push('/Rankings');
+  const matches = () => history.push('/Matches');
+  const calendar = () => history.push('/Calendar');
 
   // const matchList = () => history.push('/matches'); //new
   const logout = () => {
@@ -24,8 +27,13 @@ const AuthOptions = () => {
     <nav className="auth-options">
       {userData.user ? (
         <>
-          <button onClick={logout}> Logout </button>
+          {/* // figure out the css that will make a side bar for when userdata.user === true vvv */}
+
           <button onClick={results}> Record Your Match </button>
+          <button onClick={ranking}> Rankings </button>
+          <button onClick={matches}> Find Your Tennis Buddy</button>
+          <button onClick={calendar}> My Calendar</button>
+          <button onClick={logout}> Logout </button>
         </>
       ) : (
         <>

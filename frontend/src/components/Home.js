@@ -41,6 +41,18 @@ import React, { useEffect, useState, useContext } from 'react';
 // export default Home;
 
 const Home = (props) => {
-  return <h1> this is the homepage </h1>;
+  return (
+    <div>
+      <h1>
+        A match-making, scheduling tool and social platform for tennis players.
+      </h1>
+      <h1> Play: </h1>
+      <h2> whenever, wherever and with whomever you want. </h2>
+      <h1> Set: </h1>
+      <h2> a schedule to find the perfect time and place to meet.</h2>
+      <h1> Match: </h1>
+      <h2>with the perfect practice buddy. </h2>
+    </div>
+  );
 };
 export default Home;

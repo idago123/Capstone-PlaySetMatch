@@ -8,15 +8,15 @@ const Header = () => {
       <Link to="/">
         <h1 className="title"> PlaySetMatch </h1>
       </Link>
-      <Link to="/Matches">
+      {/* <Link to="/Matches">
         <h2 className="matchtitle"> Find Matches</h2>
-      </Link>
-      <Link to="/Rankings">
+      </Link> */}
+      {/* <Link to="/Rankings">
         <h1 className="rankings"> Rankings </h1>
-      </Link>
-      <Link to="/Calendar">
+      </Link> */}
+      {/* <Link to="/Calendar">
         <h1 className="calendar"> Calendar </h1>
-      </Link>
+      </Link> */}
       <AuthOptions />
     </header>
   );

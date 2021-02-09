@@ -40,6 +40,11 @@ const Ranking = () => {
   }, []);
 
   console.log({ results });
-  return <div>{JSON.stringify(results)}</div>;
+  return (
+    <div>
+      <h1> Rankings </h1>
+      <h2> {JSON.stringify(results)}</h2>
+    </div>
+  );
 };
 export default Ranking;
