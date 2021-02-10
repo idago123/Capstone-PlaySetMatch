@@ -76,6 +76,8 @@ router.route('/login').post(async (req, res) => {
         zipcode: user.zipcode,
         image: user.image,
         bio: user.bio,
+        inbox: user.inbox,
+        sentMsg: user.sentMsg,
       },
     });
   } catch (err) {
