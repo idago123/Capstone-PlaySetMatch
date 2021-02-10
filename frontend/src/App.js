@@ -15,6 +15,8 @@ import Ranking from './components/Ranking';
 import Calendar from './components/Calendar';
 import UserContent from './context/UserContent';
 import Axios from 'axios';
+import Inbox from './components/Inbox';
+
 import './components/style.css';
 //match function, gets collection of user data, save matches field
 
@@ -100,7 +102,9 @@ function App() {
             <Route path="/ResultsForm" component={GameResultForm} />
             <Route path="/Rankings" component={Ranking} />
             <Route path="/Calendar" component={Calendar} />
-
+            <Route path="/Inbox">
+              <Inbox />
+            </Route>
             <Route exact path="/Matches">
               <Matches userMatches={matches} />
             </Route>

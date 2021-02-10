@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 const Inbox = () => {
   // const [users, setUsers] = useState();
   const { userData } = useContext(UserContext);
-
   // try {
   //     const apiListUsers = await axios.get('http://localhost:5000/users');
   //     setUsers(apiListUsers.data)
@@ -19,7 +18,7 @@ const Inbox = () => {
   // useEffect(() => {
   //   userList();
   // }, []);
-
+  console.log(userData.user);
   return (
     <div>
       <h1> Inbox </h1>

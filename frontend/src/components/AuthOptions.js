@@ -13,6 +13,7 @@ const AuthOptions = () => {
   const ranking = () => history.push('/Rankings');
   const matches = () => history.push('/Matches');
   const calendar = () => history.push('/Calendar');
+  const inbox = () => history.push('/Inbox');
 
   // const matchList = () => history.push('/matches'); //new
   const logout = () => {
@@ -33,6 +34,8 @@ const AuthOptions = () => {
           <button onClick={ranking}> Rankings </button>
           <button onClick={matches}> Find Your Tennis Buddy</button>
           <button onClick={calendar}> My Calendar</button>
+          <button onClick={inbox}> Inbox </button>
+
           <button onClick={logout}> Logout </button>
         </>
       ) : (
