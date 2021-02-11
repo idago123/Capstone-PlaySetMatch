@@ -16,7 +16,6 @@ const NewUserForm = (props) => {
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
 
-  // const onFormSubmit = (event) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
     const newUser = {

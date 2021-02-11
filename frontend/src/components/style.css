@@ -4,9 +4,14 @@
   box-sizing: border-box;
 }
 
+* {
+  color: white;
+}
+
 a {
-  color: #2199df;
+  /* color: #2199df; */
   text-decoration: unset;
+  color: white;
 }
 
 ul {
@@ -15,7 +20,24 @@ ul {
 }
 
 body {
-  font-family: 'Roboto';
+  /* font-family: 'Roboto'; */
+  line-height: 1.5;
+  font-family: Gilroy, serif;
+  outline: none;
+  word-wrap: break-word;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('../image/tennisbg.jpg'); */
+  background-image: url('../image/court.jpg');
+
+  /* background-image: url('https://cdn.pixabay.com/photo/2015/12/08/00/34/tennis-court-1081845_1280.jpg'); */
+
+  transition: 300ms ease-in 200ms;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 button,
@@ -32,8 +54,9 @@ ul {
   margin: 1em 0;
 }
 
-#header {
-  background-color: #83c5be;
+.header {
+  /* background-color: #83c5be; */
+  /* flex-grow: 1; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,9 +71,10 @@ ul {
 #header .auth-options {
   height: 100%;
   display: flex;
+  justify-content: flex-end;
 }
 #header .auth-options button {
-  background-color: #67a19c;
+  /* background-color: #67a19c; */
   padding: 0 1rem;
   color: white;
   font-size: 1.1rem;
@@ -68,6 +92,48 @@ ul {
   font-size: 1.1rem;
   border-color: #ccf1ee;
   padding: 0 1rem;
+}
+
+/* header.appbar-header {
+  background-color: #83c5be;
+} */
+.container-home {
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1204px;
+  text-align: center;
+  color: white;
+}
+
+.small-container {
+  position: relative;
+  z-index: 1;
+  /* max-width: 749px; */
+  /* width: 60em; */
+  padding-left: 0;
+  padding-right: 0;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* text-align: center; */
+}
+
+.larger-statement {
+  /* font-size: 2.25em; */
+  margin-bottom: 16px;
+  font-size: 3em;
+
+  /* display: block; */
+  /* margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px; */
+  font-weight: bold;
+}
+.medium-statement {
+  font-size: 2em;
+  font-weight: bold;
 }
 /* MATCH COMPONENT */
 

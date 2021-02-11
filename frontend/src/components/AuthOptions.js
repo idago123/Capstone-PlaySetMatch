@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContent';
-
+import Home from './Home';
 const AuthOptions = () => {
   const { userData, setUserData } = useContext(UserContext);
 
@@ -22,6 +22,7 @@ const AuthOptions = () => {
       user: undefined,
     });
     localStorage.setItem('auth-token', '');
+    history.push('/');
   };
 
   return (

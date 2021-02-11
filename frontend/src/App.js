@@ -16,7 +16,7 @@ import Calendar from './components/Calendar';
 import UserContent from './context/UserContent';
 import Axios from 'axios';
 import Inbox from './components/Inbox';
-
+import { Badge } from '@material-ui/core';
 import './components/style.css';
 //match function, gets collection of user data, save matches field
 
@@ -92,6 +92,9 @@ function App() {
       <BrowserRouter>
         <UserContent.Provider value={{ userData, setUserData }}>
           <Header />
+          {/* <Badge badgeContent={5} color="primary">
+            <p>hello</p> */}
+          {/* </Badge> */}
           <Switch>
             {/* <Route exact path="/">
               <Home userMatches={matches} />
