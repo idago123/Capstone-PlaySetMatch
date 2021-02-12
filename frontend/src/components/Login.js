@@ -43,7 +43,7 @@ const Login = (props) => {
             className="username"
           />
         </Form.Group>
-        <Button variant="secondary" type="submit" value="Log In">
+        <Button variant="info" type="submit" value="Log In">
           Log In
         </Button>
       </Form>

@@ -5,12 +5,14 @@ import { useHistory } from 'react-router-dom';
 import SportsTennisIcon from '@material-ui/icons/SportsTennis';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import UserContext from '../context/UserContent';
 
 const Home = (props) => {
   const history = useHistory();
 
   const register = () => history.push('/register');
   const login = () => history.push('/login');
+  const { userData, setUserData } = useContext(UserContext);
 
   return (
     <div className="container-home">
@@ -38,9 +40,13 @@ const Home = (props) => {
         </h2>
         <h3>With the perfect practice buddy. </h3>
       </div>
-      <Button variant="warning" size="lg" onClick={register}>
-        Sign Up Now
-      </Button>
+      {userData.user ? (
+        ''
+      ) : (
+        <Button variant="warning" size="lg" onClick={register}>
+          Register
+        </Button>
+      )}
     </div>
   );
 };

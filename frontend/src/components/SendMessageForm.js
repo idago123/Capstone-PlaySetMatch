@@ -4,6 +4,8 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
 const SendMessageForm = (props) => {
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
@@ -85,7 +87,10 @@ const SendMessageForm = (props) => {
           className="message"
         />
       </div>
-      <input type="submit" value="Send Message" />
+      <Button variant="secondary" type="submit" value="message">
+        Send Message
+      </Button>
+      {/* <input type="submit" value="Send Message" /> */}
     </form>
   );
 };

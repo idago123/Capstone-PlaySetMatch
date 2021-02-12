@@ -50,35 +50,39 @@ const GameResultForm = (props) => {
   };
 
   return (
-    <Form className="schedule-form" onSubmit={onFormSubmit}>
-      <Form.Group controlId="buddy">
-        <Form.Label>Tennis Buddy</Form.Label>
-        <Form.Control
-          onChange={(event) => setTennisBuddy(event.target.value)}
-          type="buddy"
-          placeholder="Enter username"
-        />
-      </Form.Group>
-      <Form.Group controlId="Winner">
-        <Form.Label>Winner</Form.Label>
-        <Form.Control
-          type="winn"
-          placeholder="If applicable, enter winner's username"
-          onChange={(event) => setWinner(event.target.value)}
-        />
-      </Form.Group>
-      <Form.Group controlId="date">
-        <Form.Label>date</Form.Label>
-        <Form.Control
-          onChange={(event) => setDate(event.target.value)}
-          type="date"
-          placeholder="Enter the date of the meetup"
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <div className="button-submit-record">
+      {' '}
+      <h1 className="rank-title"> Record Past or Upcoming Matches</h1>
+      <Form className="schedule-form" onSubmit={onFormSubmit}>
+        <Form.Group controlId="buddy">
+          <Form.Label>Tennis Buddy</Form.Label>
+          <Form.Control
+            onChange={(event) => setTennisBuddy(event.target.value)}
+            type="buddy"
+            placeholder="Enter username"
+          />
+        </Form.Group>
+        <Form.Group controlId="Winner">
+          <Form.Label>Winner</Form.Label>
+          <Form.Control
+            type="winn"
+            placeholder="If applicable, enter winner's username"
+            onChange={(event) => setWinner(event.target.value)}
+          />
+        </Form.Group>
+        <Form.Group controlId="date">
+          <Form.Label>date</Form.Label>
+          <Form.Control
+            onChange={(event) => setDate(event.target.value)}
+            type="date"
+            placeholder="Enter the date of the meetup"
+          />
+        </Form.Group>
+        <Button variant="warning" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </div>
     // <div className="record-match">
     //   <form
     //     className="new-user-form"
