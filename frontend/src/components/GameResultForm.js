@@ -71,7 +71,7 @@ const GameResultForm = (props) => {
           />
         </Form.Group>
         <Form.Group controlId="date">
-          <Form.Label>date</Form.Label>
+          <Form.Label>Date</Form.Label>
           <Form.Control
             onChange={(event) => setDate(event.target.value)}
             type="date"

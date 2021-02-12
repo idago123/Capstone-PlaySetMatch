@@ -7,20 +7,33 @@ import SendMessageForm from './SendMessageForm';
 const Inbox = () => {
   const { userData } = useContext(UserContext);
 
-  console.log(userData.user);
-  console.log(userData.user.sentMsg);
+  // console.log(userData.user);
+  // console.log(userData.user.sentMsg);
   //parse through this to get date, user msg, => userData.user.inbox, reply back?
   // go through userData.user.inbox, look at data.from, create an object keys (keys = id data.from and data.to, values = array of hashes (messages, date, boolean to say if its to or from))
   //
+
   const userInbox = userData.user.inbox.map((data, index) => {
+    let newdate = new Date(data.date);
+    let day = String(newdate.getDate()).padStart(2, '0');
+    let month = String(newdate.getMonth() + 1).padStart(2, '0');
+    let year = newdate.getFullYear();
+    let fullDate = month + '/' + day + '/' + year;
+    console.log(newdate);
     return (
       <div>
         <ul>
-          <li>{`Date: ${data.date}`}</li>
-          <li> {`From: ${data.from}`} </li>
+          <li>{`Date: ${fullDate}`}</li>
+          {/* //from */}
+          <li> {`From: ${data.sender_name}`} </li>
           <li>{`Message: ${data.message}`} </li>
           <li>
-            {'Reply back:'} <SendMessageForm toUserId={data.from} />
+            {'Reply back:'}{' '}
+            <SendMessageForm
+              toUserId={data.from}
+              sender_name={data.username}
+              receiver_name={data.sender_name}
+            />
           </li>
         </ul>
       </div>
@@ -28,12 +41,17 @@ const Inbox = () => {
   });
 
   const sentMessages = userData.user.sentMsg.map((data, index) => {
-    console.log(data);
+    let newdate = new Date(data.date);
+    let day = String(newdate.getDate()).padStart(2, '0');
+    let month = String(newdate.getMonth() + 1).padStart(2, '0');
+    let year = newdate.getFullYear();
+    let fullDate = month + '/' + day + '/' + year;
     return (
       <div>
         <ul>
-          <li>{`Date: ${data.date}`}</li>
-          <li> {`To: ${data.to}`} </li>
+          <li>{`Date: ${fullDate}`}</li>
+          {/* data.to */}
+          <li> {`To: ${data.receiver_name}`} </li>
           <li>{`Message: ${data.message}`} </li>
         </ul>
       </div>

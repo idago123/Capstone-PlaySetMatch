@@ -17,7 +17,7 @@ const Calendar = () => {
 
       const schedule = apiListGames.data.map((match) => {
         if (userData.user.username === match.username) {
-          return `Date: ${match.date}, Opponent: ${match.tennisBuddy}`; //add location?
+          return `Date: ${match.date}, Tennis Buddy: ${match.tennisBuddy}`; //add location?
         }
       }, {});
       setResults(schedule);

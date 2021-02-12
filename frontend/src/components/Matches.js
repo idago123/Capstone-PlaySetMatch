@@ -15,23 +15,26 @@ const Matches = (props) => {
   const userMatchesList = props.userMatches.map((user, i) => {
     // console.log(user._id);
     return (
-      <li key={user._id}>
-        <Match
-          username={user.username}
-          availability={user.availability}
-          skillLevel={user.skillLevel}
-          bio={user.bio}
-          city={user.city}
-          zipcode={user.zipcode}
-          id={user._id}
-        />
-      </li>
+      // <li key={user._id}>
+      <Match
+        username={user.username}
+        availability={user.availability}
+        skillLevel={user.skillLevel}
+        bio={user.bio}
+        city={user.city}
+        zipcode={user.zipcode}
+        id={user._id}
+        key={user._id}
+      />
+      // </li>
     );
   });
   // return <ul className="match-list">{userMatchesList}</ul>;
 
   return (
     <div>
+      <h1 className="rank-title"> Your Player Matches </h1>
+
       {/* {(userData.user && (props.userMatches.length > 0)) ( */}
 
       {props.userMatches.length > 0 ? (

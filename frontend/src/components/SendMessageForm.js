@@ -4,9 +4,11 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
+import { Form, Button, Container, Col } from 'react-bootstrap';
 
 const SendMessageForm = (props) => {
+  console.log(props);
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
   // date, sentUser and message should be an object in inbox
@@ -59,10 +61,12 @@ const SendMessageForm = (props) => {
     //     composed: // fromDate: Date.now, sent_user: userdata.user.id, message:
     // };
     await axios.post(`http://localhost:5000/users/message`, {
-      date: Date.now,
+      date: Date.now(),
       from: userData.user.id,
       message: message,
       to: props.toUserId,
+      sender_name: userData.user.username,
+      receiver_name: props.receiver_name,
     });
 
     // const updateFromUser = await axios.post(
@@ -78,7 +82,15 @@ const SendMessageForm = (props) => {
       data-testid="NewUserForm--form"
     >
       <div>
-        <label htmlFor="message">Message:</label>
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          {/* <Form.Label>Example textarea</Form.Label> */}
+          <Form.Control
+            onChange={(event) => setMessage(event.target.value)}
+            as="textarea"
+            rows={2}
+          />
+        </Form.Group>
+        {/* <label htmlFor="message">Message:</label>
         <input
           id="message"
           name="message"
@@ -87,7 +99,7 @@ const SendMessageForm = (props) => {
           className="message"
           placeholder="Enter your message here"
           STYLE="color: black"
-        />
+        /> */}
       </div>
       <Button variant="secondary" type="submit" value="message">
         Send Message

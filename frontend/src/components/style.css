@@ -4,9 +4,10 @@
   box-sizing: border-box;
 } */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); */
 * {
   color: white;
-  font-family: Gilroy, serif !important;
+  /* font-family: Gilroy, serif !important; */
 }
 
 a {
@@ -25,7 +26,7 @@ ul {
 }
 
 body {
-  /* font-family: 'Roboto'; */
+  font-family: 'Roboto';
   line-height: 1.5;
   /* font-family: Gilroy, serif; */
   outline: none;
