@@ -50,9 +50,6 @@ const Ranking = () => {
   });
   console.log(ranksort);
 
-  // ranksort.map((user, index) => {
-  //   return `${user[0]}`;
-  // });
   return (
     <table class="table">
       <thead>
