@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import { useState, useEffect, useCallback } from 'react';
 import NewUserForm from './components/NewUserForm';
@@ -19,7 +19,6 @@ import Inbox from './components/Inbox';
 import { Badge } from '@material-ui/core';
 import './components/style.css';
 //match function, gets collection of user data, save matches field
-
 function App() {
   const [userCollection, setUserCollection] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -28,6 +27,8 @@ function App() {
     token: null,
     user: null,
   });
+  // const location = useLocation();
+  // console.log(location);
   // check to see if user is logged in
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -86,7 +87,7 @@ function App() {
       matchUsers(userData.user);
     }
   }, [userData, matchUsers]); //only execute this function if the value of one of my dependencies is different from the previous render
-
+  // const backgroundClassName = location.pathname === '/' ? 'tennis-bg' : '';
   return (
     <>
       <BrowserRouter>
@@ -99,7 +100,9 @@ function App() {
             {/* <Route exact path="/">
               <Home userMatches={matches} />
             </Route> */}
+
             <Route exact path="/" component={Home} />
+
             <Route path="/login" component={Login} />
             <Route path="/Register" component={NewUserForm} />
             <Route path="/ResultsForm" component={GameResultForm} />

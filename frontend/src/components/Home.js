@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import SportsTennisIcon from '@material-ui/icons/SportsTennis';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+
 const Home = (props) => {
   const history = useHistory();
 
@@ -20,17 +21,20 @@ const Home = (props) => {
         </h1>
         <h2 className="medium-statement">
           {' '}
-          <SportsTennisIcon /> Play:{' '}
+          <SportsTennisIcon /> Play{' '}
         </h2>
-        <h3> Whenever, wherever and with whomever you want. </h3>
+        <h3 className="small-statement">
+          {' '}
+          Whenever, wherever and with whomever you want.{' '}
+        </h3>
         <h2 className="medium-statement">
           {' '}
-          <AccessTimeIcon /> Set:{' '}
+          <AccessTimeIcon /> Set{' '}
         </h2>
         <h3> A schedule to find the perfect time and place to meet.</h3>
         <h2 className="medium-statement">
           {' '}
-          <GroupAddIcon /> Match:{' '}
+          <GroupAddIcon /> Match{' '}
         </h2>
         <h3>With the perfect practice buddy. </h3>
       </div>

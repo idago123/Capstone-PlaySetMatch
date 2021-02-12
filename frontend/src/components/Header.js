@@ -34,10 +34,21 @@ const Header = () => {
     //   </AppBar>
     // </div>
     <header id="header">
-      <Link to="/">
+      {/* <Link to="/">
         <h1 className="title"> PlaySetMatch </h1>
-      </Link>
-      <AuthOptions />
+      </Link> */}
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <Link to="/">
+            <h1 className="title me-auto"> PlaySetMatch </h1>
+          </Link>
+        </div>
+        <div class="col-4">
+          <AuthOptions />
+        </div>
+      </div>
+
+      {/* <AuthOptions /> */}
     </header>
   );
 };

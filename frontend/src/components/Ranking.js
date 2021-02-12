@@ -38,13 +38,42 @@ const Ranking = () => {
   useEffect(() => {
     gameResultsList();
   }, []);
+  // console.log({ results });
 
-  console.log({ results });
+  let sortable = [];
+  for (const [key, value] of Object.entries(results)) {
+    sortable.push([key, value]);
+  }
+  // console.log(sortable);
+  let ranksort = sortable.sort(function (a, b) {
+    return b[1] - a[1];
+  });
+  console.log(ranksort);
+
+  // ranksort.map((user, index) => {
+  //   return `${user[0]}`;
+  // });
   return (
-    <div>
-      <h1> Rankings </h1>
-      <h2> {JSON.stringify(results)}</h2>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Rank #</th>
+          <th scope="col">Username</th>
+          <th scope="col">Win Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {ranksort.map((user, index) => {
+          return (
+            <tr>
+              <th scope="row"> {index + 1}</th>
+              <td>{user[0]}</td>
+              <td>{user[1]} </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 export default Ranking;
