@@ -149,6 +149,29 @@ ul {
   margin-left: auto;
   margin-right: auto;
 }
+.ranking-table {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rank-title {
+  text-align: center;
+}
+
+/* .record-match {
+  width: 70%;
+
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.schedule-form {
+  width: 50%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
 /* .small-statement {
   font-weight: bold;
 } */

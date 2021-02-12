@@ -51,26 +51,29 @@ const Ranking = () => {
   console.log(ranksort);
 
   return (
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Rank #</th>
-          <th scope="col">Username</th>
-          <th scope="col">Win Count</th>
-        </tr>
-      </thead>
-      <tbody>
-        {ranksort.map((user, index) => {
-          return (
-            <tr>
-              <th scope="row"> {index + 1}</th>
-              <td>{user[0]}</td>
-              <td>{user[1]} </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="ranking-table">
+      <h1 className="rank-title">Player Rankings </h1>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Rank #</th>
+            <th scope="col">Username</th>
+            <th scope="col">Win Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ranksort.map((user, index) => {
+            return (
+              <tr>
+                <th scope="row"> {index + 1}</th>
+                <td>{user[0]}</td>
+                <td>{user[1]} </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default Ranking;

@@ -4,6 +4,7 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
+import { Form, Button, Container, Col } from 'react-bootstrap';
 
 const GameResultForm = (props) => {
   const [username, setUsername] = useState('');
@@ -45,47 +46,78 @@ const GameResultForm = (props) => {
       console.log(err.response);
     }
 
-    console.log(newResult);
+    history.push('/Calendar');
   };
 
   return (
-    <form
-      className="new-user-form"
-      onSubmit={onFormSubmit}
-      data-testid="NewUserForm--form"
-    >
-      <div>
-        <label htmlFor="buddy">Tennis Buddy:</label>
-        <input
-          id="buddy"
-          name="buddy"
+    <Form className="schedule-form" onSubmit={onFormSubmit}>
+      <Form.Group controlId="buddy">
+        <Form.Label>Tennis Buddy</Form.Label>
+        <Form.Control
           onChange={(event) => setTennisBuddy(event.target.value)}
-          value={tennisBuddy}
-          className="buddy"
+          type="buddy"
+          placeholder="Enter username"
         />
-      </div>
-      <div>
-        <label htmlFor="winner">Winner:</label>
-        <input
-          id="winner"
-          name="winner"
+      </Form.Group>
+      <Form.Group controlId="Winner">
+        <Form.Label>Winner</Form.Label>
+        <Form.Control
+          type="winn"
+          placeholder="If applicable, enter winner's username"
           onChange={(event) => setWinner(event.target.value)}
-          value={winner}
-          className="winner"
         />
-      </div>
-      <div>
-        <label htmlFor="date">Date:</label>
-        <input
-          id="date"
-          name="date"
+      </Form.Group>
+      <Form.Group controlId="date">
+        <Form.Label>date</Form.Label>
+        <Form.Control
           onChange={(event) => setDate(event.target.value)}
-          value={date}
-          className="date"
+          type="date"
+          placeholder="Enter the date of the meetup"
         />
-      </div>
-      <input type="submit" value="Record Result" />
-    </form>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+    // <div className="record-match">
+    //   <form
+    //     className="new-user-form"
+    //     onSubmit={onFormSubmit}
+    //     data-testid="NewUserForm--form"
+    //   >
+    //     <div>
+    //       <label htmlFor="buddy">Tennis Buddy:</label>
+    //       <input
+    //         id="buddy"
+    //         name="buddy"
+    //         onChange={(event) => setTennisBuddy(event.target.value)}
+    //         value={tennisBuddy}
+    //         className="buddy"
+    //       />
+    //     </div>
+    //     <div>
+    //       <label htmlFor="winner">Winner:</label>
+    //       <input
+    //         id="winner"
+    //         name="winner"
+    //         onChange={(event) => setWinner(event.target.value)}
+    //         value={winner}
+    //         className="winner"
+    //       />
+    //     </div>
+    //     <div>
+    //       <label htmlFor="date">Date:</label>
+    //       <input
+    //         id="date"
+    //         name="date"
+    //         onChange={(event) => setDate(event.target.value)}
+    //         value={date}
+    //         className="date"
+    //       />
+    //     </div>
+    //     <input type="submit" value="Record Result" />
+    //   </form>
+    // </div>
   );
 };
 
