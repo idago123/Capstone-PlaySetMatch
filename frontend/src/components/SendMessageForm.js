@@ -85,6 +85,8 @@ const SendMessageForm = (props) => {
           onChange={(event) => setMessage(event.target.value)}
           value={message}
           className="message"
+          placeholder="Enter your message here"
+          STYLE="color: black"
         />
       </div>
       <Button variant="secondary" type="submit" value="message">
