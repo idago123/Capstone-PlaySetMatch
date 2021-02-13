@@ -19,6 +19,9 @@ import Inbox from './components/Inbox';
 import { Badge } from '@material-ui/core';
 import './components/style.css';
 //match function, gets collection of user data, save matches field
+
+const BASE_URL = 'https://play-set-match-api.herokuapp.com';
+
 function App() {
   const [userCollection, setUserCollection] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -38,12 +41,12 @@ function App() {
         token = '';
       }
       const tokenRes = await Axios.post(
-        'localhost:5000/users/tokenIsValid',
+        `${BASE_URL}/users/tokenIsValid`,
         null,
         { headers: { 'x-auth-token': token } }
       );
       if (tokenRes.data) {
-        const userRes = await Axios.get('localhost:5000/users', {
+        const userRes = await Axios.get(`${BASE_URL}/users`, {
           headers: { 'x-auth-token': token },
         });
         console.log(userRes.data);
@@ -56,7 +59,7 @@ function App() {
     checkLoggedIn();
 
     const usersList = async () => {
-      Axios.get('http://localhost:5000/users')
+      Axios.get(`${BASE_URL}`)
         .then((response) => {
           const apiListUsers = response.data;
           setUserCollection(apiListUsers);
@@ -70,7 +73,7 @@ function App() {
 
   const matchUsers = useCallback((user) => {
     // console.log(userData.user);
-    Axios.get(`http://localhost:5000/users/matches/${user.id}`)
+    Axios.get(`${BASE_URL}/users/matches/${user.id}`)
       .then((response) => {
         const apiMatchUsers = response.data;
         setMatches(apiMatchUsers);
