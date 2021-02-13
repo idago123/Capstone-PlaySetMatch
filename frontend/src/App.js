@@ -20,7 +20,8 @@ import { Badge } from '@material-ui/core';
 import './components/style.css';
 //match function, gets collection of user data, save matches field
 
-const BASE_URL = 'https://play-set-match-api.herokuapp.com';
+// const BASE_URL = 'https://play-set-match-api.herokuapp.com';
+const BASE_URL = 'http://localhost:5000';
 
 function App() {
   const [userCollection, setUserCollection] = useState([]);

@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
+const BASE_URL = 'http://localhost:5000';
+
 const GameResultForm = (props) => {
   const [username, setUsername] = useState('');
   const [winner, setWinner] = useState('');
@@ -35,10 +37,7 @@ const GameResultForm = (props) => {
     // console.log(err.response);
     //   });
     try {
-      const loginRes = await axios.post(
-        'http://localhost:5000/match/add',
-        newResult
-      );
+      const loginRes = await axios.post(`${BASE_URL}/match/add`, newResult);
       setTennisBuddy('');
       setWinner('');
       setDate('');

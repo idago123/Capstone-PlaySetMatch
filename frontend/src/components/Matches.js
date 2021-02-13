@@ -9,7 +9,7 @@ import Match from './Match';
 // here we will need something that says: if user exists, show these matches
 const Matches = (props) => {
   // create button, if button is clicked. call the prop and iterate through matches, match should hace its own component
-  console.log(props.userMatches);
+  console.log(props);
   const { userData, setUserData } = useContext(UserContext);
   //   return <h1> homepage</h1>;
   const userMatchesList = props.userMatches.map((user, i) => {

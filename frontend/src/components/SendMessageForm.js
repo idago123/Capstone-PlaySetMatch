@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom';
 // import { Button } from 'react-bootstrap';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
+const BASE_URL = 'http://localhost:5000';
+
 const SendMessageForm = (props) => {
   console.log(props);
   const { userData, setUserData } = useContext(UserContext);
@@ -60,7 +62,7 @@ const SendMessageForm = (props) => {
     // const fromUser = {
     //     composed: // fromDate: Date.now, sent_user: userdata.user.id, message:
     // };
-    await axios.post(`http://localhost:5000/users/message`, {
+    await axios.post(`${BASE_URL}/users/message`, {
       date: Date.now(),
       from: userData.user.id,
       message: message,

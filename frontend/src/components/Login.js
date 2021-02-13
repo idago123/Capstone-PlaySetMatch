@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const BASE_URL = 'http://localhost:5000';
 const Login = (props) => {
   const [username, setUsername] = useState('');
   const { setUserData } = useContext(UserContext);
@@ -14,10 +15,7 @@ const Login = (props) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
     const loginUser = { username };
-    const loginRes = await axios.post(
-      'http://localhost:5000/users/login',
-      loginUser
-    );
+    const loginRes = await axios.post(`${BASE_URL}/users/login`, loginUser);
     setUserData({
       token: loginRes.data.token,
       user: loginRes.data.user,
