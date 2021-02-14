@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 // import { Button } from 'react-bootstrap';
 import { Form, Button, Alert, Container, Col } from 'react-bootstrap';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 
 const SendMessageForm = (props) => {
   console.log(props);
@@ -21,7 +21,7 @@ const SendMessageForm = (props) => {
     event.preventDefault();
     console.log(props.toUserId);
 
-    await axios.post(`${BASE_URL}/users/message`, {
+    await axios.post(`${process.env.API_URL}/users/message`, {
       date: Date.now(),
       from: userData.user.id,
       message: message,
