@@ -2,11 +2,11 @@ import React, { useEffect, useState, useContext } from 'react';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 // import { Form } from 'react-bootstrap';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 
 const GameResultForm = (props) => {
   const [username, setUsername] = useState('');
@@ -30,7 +30,10 @@ const GameResultForm = (props) => {
     };
 
     try {
-      const loginRes = await axios.post(`${BASE_URL}/match/add`, newResult);
+      const loginRes = await axios.post(
+        `${process.env.API_URL}/match/add`,
+        newResult
+      );
       setTennisBuddy('');
       setWinner('');
       setDate('');
@@ -45,6 +48,11 @@ const GameResultForm = (props) => {
     <div className="button-submit-record">
       {' '}
       <h1 className="rank-title"> Record Past or Upcoming Matches</h1>
+      <p className="rank-title">
+        * Matches automatically get updated in the{' '}
+        <Link to="/Calendar"> calendar</Link> and{' '}
+        <Link to="/Rankings"> rankings</Link> page after they are recorded.{' '}
+      </p>
       <Form className="schedule-form" onSubmit={onFormSubmit}>
         <Form.Group controlId="buddy">
           <Form.Label>Tennis Buddy</Form.Label>

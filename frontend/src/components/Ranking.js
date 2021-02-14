@@ -4,9 +4,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 const Ranking = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [results, setResults] = useState([]);
@@ -18,7 +18,7 @@ const Ranking = () => {
 
   const gameResultsList = async () => {
     try {
-      const apiListGames = await axios.get(`${BASE_URL}/match`);
+      const apiListGames = await axios.get(`${process.env.API_URL}/match`);
       // console.log(apiListGames);
       const rankings = apiListGames.data.reduce((wins, match) => {
         const winner = match.winner;
@@ -54,6 +54,15 @@ const Ranking = () => {
   return (
     <div className="ranking-table">
       <h1 className="rank-title">Player Rankings </h1>
+      <p className="rank-title">
+        {' '}
+        * In order to be ranked, users must{' '}
+        <Link to="/ResultsForm">
+          {' '}
+          <u>record</u>
+        </Link>{' '}
+        their matches. Rankings are based on number of wins.{' '}
+      </p>
       {/* <table class="table table-dark table-hover"> */}
       <table class="table">
         <thead class="thead-dark">

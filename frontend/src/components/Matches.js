@@ -36,7 +36,11 @@ const Matches = (props) => {
   return (
     <div>
       <h1 className="rank-title"> Your Player Matches </h1>
-
+      <p className="rank-title">
+        {' '}
+        * All matches are based on availability, skill level and location. Find
+        and reach out to your next tennis buddy below.
+      </p>
       {/* {(userData.user && (props.userMatches.length > 0)) ( */}
 
       {props.userMatches.length > 0 ? (

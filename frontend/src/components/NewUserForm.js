@@ -5,7 +5,7 @@ import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 
 // import { Form } from 'react-bootstrap';
 const NewUserForm = (props) => {
@@ -31,10 +31,16 @@ const NewUserForm = (props) => {
       bio,
       image,
     };
-    const loginRes = await axios.post(`${BASE_URL}/users/add`, newUser);
+    const loginRes = await axios.post(
+      `${process.env.API_URL}/users/add`,
+      newUser
+    );
 
     if (loginRes.status === 200) {
-      const loginRes = await axios.post(`${BASE_URL}/users/login`, newUser);
+      const loginRes = await axios.post(
+        `${process.env.API_URL}/users/login`,
+        newUser
+      );
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
@@ -126,7 +132,12 @@ const NewUserForm = (props) => {
           <Form.Control onChange={(event) => setImage(event.target.value)} />
         </Form.Group>
       </Form.Row>
-
+      {/* <div className="mb-3">
+    <Form.File id="formcheck-api-regular">
+      <Form.File.Label>Regular file input</Form.File.Label>
+      <Form.File.Input />
+    </Form.File>
+  </div> */}
       {/* <Form.Group id="formGridCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group> */}

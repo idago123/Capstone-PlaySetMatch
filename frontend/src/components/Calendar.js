@@ -6,17 +6,19 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 import { Schedule } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 
 const Calendar = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
+  const history = useHistory();
 
   const allGames = async () => {
     try {
-      const apiListGames = await axios.get(`${BASE_URL}/match`);
+      const apiListGames = await axios.get(`${process.env.API_URL}/match`);
       console.log(apiListGames.data);
       const schedule = apiListGames.data
         .filter((match) => {
@@ -45,6 +47,11 @@ const Calendar = () => {
   return (
     <div className="ranking-table">
       <h1 className="rank-title">Past or Upcoming Events</h1>
+      <p className="rank-title">
+        {' '}
+        * When a game is {<Link to="/ResultsForm"> recorded</Link>}, the
+        calendar is automatically updated.{' '}
+      </p>
       <table class="table table-dark table-hover">
         <thead>
           <tr class="table-info">

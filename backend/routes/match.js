@@ -15,12 +15,14 @@ router.route('/add').post((req, res) => {
   const winner = req.body.winner;
   const username = req.body.username;
   const tennisBuddy = req.body.tennisBuddy;
+  const location = req.body.location;
 
   const newMatch = new Match({
     date,
     winner,
     username,
     tennisBuddy,
+    location,
   });
   //   console.log(newMatch);
   newMatch

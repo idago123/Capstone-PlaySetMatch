@@ -19,6 +19,9 @@ const matchSchema = new Schema({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+  },
 });
 
 const GameResult = mongoose.model('gameResults', matchSchema);
