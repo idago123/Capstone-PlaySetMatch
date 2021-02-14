@@ -121,7 +121,7 @@ const NewUserForm = (props) => {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridZip">
+        <Form.Group as={Col} controlId="formGridZip" className="image">
           <Form.Label>Image</Form.Label>
           <Form.Control onChange={(event) => setImage(event.target.value)} />
         </Form.Group>

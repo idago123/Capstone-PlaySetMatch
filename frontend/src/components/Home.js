@@ -23,7 +23,7 @@ const Home = (props) => {
         </h1>
         <h2 className="medium-statement">
           {' '}
-          <SportsTennisIcon /> Play{' '}
+          <SportsTennisIcon /> Play:{' '}
         </h2>
         <h3 className="small-statement">
           {' '}
@@ -31,14 +31,17 @@ const Home = (props) => {
         </h3>
         <h2 className="medium-statement">
           {' '}
-          <AccessTimeIcon /> Set{' '}
+          <AccessTimeIcon /> Set:{' '}
         </h2>
         <h3> A schedule to find the perfect time and place to meet.</h3>
         <h2 className="medium-statement">
           {' '}
-          <GroupAddIcon /> Match{' '}
+          <GroupAddIcon /> Match:{' '}
         </h2>
         <h3>With the perfect practice buddy. </h3>
+        {/* <footer className="footer">
+          <p> Ida Goitom</p>
+        </footer> */}
       </div>
       {userData.user ? (
         ''

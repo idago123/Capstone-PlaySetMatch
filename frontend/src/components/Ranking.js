@@ -54,8 +54,9 @@ const Ranking = () => {
   return (
     <div className="ranking-table">
       <h1 className="rank-title">Player Rankings </h1>
-      <table class="table table-dark table-hover">
-        <thead>
+      {/* <table class="table table-dark table-hover"> */}
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
             <th scope="col">Rank #</th>
             <th scope="col">Username</th>
@@ -66,9 +67,9 @@ const Ranking = () => {
           {ranksort.map((user, index) => {
             return (
               <tr>
-                <th scope="row"> {index + 1}</th>
-                <td>{user[0]}</td>
-                <td>{user[1]} </td>
+                <td class="table-light"> {index + 1}</td>
+                <td class="table-light">{user[0]}</td>
+                <td class="table-light">{user[1]} </td>
               </tr>
             );
           })}

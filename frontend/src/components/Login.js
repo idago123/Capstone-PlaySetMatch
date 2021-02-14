@@ -27,6 +27,7 @@ const Login = (props) => {
   return (
     <Container>
       <Form
+        inline
         className="new-user-form"
         onSubmit={onFormSubmit}
         data-testid="NewUserForm--form"
@@ -41,9 +42,12 @@ const Login = (props) => {
             className="username"
           />
         </Form.Group>
-        <Button variant="success" type="submit" value="Log In">
+        <Button variant="dark" type="submit">
           Log In
         </Button>
+        {/* <Button variant="outline-info" type="submit" value="Log In">
+          Log In
+         </Button> */}
       </Form>
     </Container>
 

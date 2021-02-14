@@ -84,7 +84,6 @@ function App() {
         setErrorMessage(error.message);
       });
   }, []);
-  console.log(userData);
 
   useEffect(() => {
     if (userData.user) {
@@ -92,6 +91,7 @@ function App() {
     }
   }, [userData, matchUsers]); //only execute this function if the value of one of my dependencies is different from the previous render
   // const backgroundClassName = location.pathname === '/' ? 'tennis-bg' : '';
+  console.log(matches);
   return (
     <>
       <BrowserRouter>

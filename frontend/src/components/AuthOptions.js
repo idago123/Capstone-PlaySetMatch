@@ -30,8 +30,9 @@ const AuthOptions = () => {
     <nav className="auth-options">
       {userData.user ? (
         <>
-          {/* // figure out the css that will make a side bar for when userdata.user === true vvv */}
+          <h3>{`Hello, ${userData.user.username}!`}</h3>
 
+          {/* // figure out the css that will make a side bar for when userdata.user === true vvv */}
           <button onClick={results}> Record Your Match </button>
           <button onClick={ranking}> Rankings </button>
           <button onClick={matches}> Find Your Tennis Buddy</button>

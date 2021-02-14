@@ -13,38 +13,31 @@ const GameResultForm = (props) => {
   const [winner, setWinner] = useState('');
   const [date, setDate] = useState('');
   const [tennisBuddy, setTennisBuddy] = useState('');
-
+  const [location, setLocation] = useState('');
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
   // const onFormSubmit = (event) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
-    // ADD TENNIS BUDDY FIELD TO BACKEND AND MAYBE SCORE CARD
-    // HOW TO IMPLEMENT CALENDAR COMPONENT THAT CONTAINS PAST AND FUTURE GAMES?
-    // for chat messages: back end model - only contain the user field (the user recieving messages) and the value can be an array of hashes. the hashes key would be: from_user, date (date.now), and message string.
+
     const newResult = {
       username: userData.user.username,
       winner,
       date,
       tennisBuddy,
+      location,
     };
 
-    // const loginRes = await axios
-    //   .post('http://localhost:5000/match/add', newResult)
-    //   .then((response) => {})
-    //   .catch((err) => {
-    // console.log(err.response);
-    //   });
     try {
       const loginRes = await axios.post(`${BASE_URL}/match/add`, newResult);
       setTennisBuddy('');
       setWinner('');
       setDate('');
+      setLocation('');
     } catch (err) {
       console.log(err.response);
     }
-
     history.push('/Calendar');
   };
 
@@ -69,6 +62,14 @@ const GameResultForm = (props) => {
             onChange={(event) => setWinner(event.target.value)}
           />
         </Form.Group>
+        <Form.Group controlId="location">
+          <Form.Label>Location</Form.Label>
+          <Form.Control
+            type="location"
+            placeholder="Enter tennis court name"
+            onChange={(event) => setLocation(event.target.value)}
+          />
+        </Form.Group>
         <Form.Group controlId="date">
           <Form.Label>Date</Form.Label>
           <Form.Control
@@ -82,45 +83,6 @@ const GameResultForm = (props) => {
         </Button>
       </Form>
     </div>
-    // <div className="record-match">
-    //   <form
-    //     className="new-user-form"
-    //     onSubmit={onFormSubmit}
-    //     data-testid="NewUserForm--form"
-    //   >
-    //     <div>
-    //       <label htmlFor="buddy">Tennis Buddy:</label>
-    //       <input
-    //         id="buddy"
-    //         name="buddy"
-    //         onChange={(event) => setTennisBuddy(event.target.value)}
-    //         value={tennisBuddy}
-    //         className="buddy"
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="winner">Winner:</label>
-    //       <input
-    //         id="winner"
-    //         name="winner"
-    //         onChange={(event) => setWinner(event.target.value)}
-    //         value={winner}
-    //         className="winner"
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="date">Date:</label>
-    //       <input
-    //         id="date"
-    //         name="date"
-    //         onChange={(event) => setDate(event.target.value)}
-    //         value={date}
-    //         className="date"
-    //       />
-    //     </div>
-    //     <input type="submit" value="Record Result" />
-    //   </form>
-    // </div>
   );
 };
 
