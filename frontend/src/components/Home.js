@@ -20,8 +20,8 @@ const Home = (props) => {
   return (
     <Container>
       <Row>
-        <Col>
-          <Image
+        {/* <Col> */}
+        {/* <Image
             src={tennisBall}
             // "https://cdn.pixabay.com/photo/2014/04/03/10/11/tennis-310075_1280.png"
             // "https://cdn.pixabay.com/photo/2013/07/13/01/19/tennis-court-155517_1280.png"
@@ -39,7 +39,7 @@ const Home = (props) => {
             alt="tennis-court"
             fluid
           />
-        </Col>
+        </Col> */}
         <Col xs={8}>
           {' '}
           {/* <div className="container-home">
