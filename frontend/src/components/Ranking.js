@@ -6,7 +6,7 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory, Link } from 'react-router-dom';
 
-// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://localhost:5000';
 const Ranking = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [results, setResults] = useState([]);
@@ -18,7 +18,7 @@ const Ranking = () => {
 
   const gameResultsList = async () => {
     try {
-      const apiListGames = await axios.get(`${process.env.API_URL}/match`);
+      const apiListGames = await axios.get(`${BASE_URL}/match`);
       // console.log(apiListGames);
       const rankings = apiListGames.data.reduce((wins, match) => {
         const winner = match.winner;

@@ -5,7 +5,7 @@ import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
-// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://localhost:5000';
 
 // import { Form } from 'react-bootstrap';
 const NewUserForm = (props) => {
@@ -31,16 +31,10 @@ const NewUserForm = (props) => {
       bio,
       image,
     };
-    const loginRes = await axios.post(
-      `${process.env.API_URL}/users/add`,
-      newUser
-    );
+    const loginRes = await axios.post(`${BASE_URL}/users/add`, newUser);
 
     if (loginRes.status === 200) {
-      const loginRes = await axios.post(
-        `${process.env.API_URL}/users/login`,
-        newUser
-      );
+      const loginRes = await axios.post(`${BASE_URL}/users/login`, newUser);
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

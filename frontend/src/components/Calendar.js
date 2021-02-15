@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 import { Schedule } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://localhost:5000';
 
 const Calendar = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -18,7 +18,7 @@ const Calendar = () => {
 
   const allGames = async () => {
     try {
-      const apiListGames = await axios.get(`${process.env.API_URL}/match`);
+      const apiListGames = await axios.get(`${BASE_URL}/match`);
       console.log(apiListGames.data);
       const schedule = apiListGames.data
         .filter((match) => {

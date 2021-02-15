@@ -191,6 +191,16 @@ ul {
   text-align: center;
 }
 
+.front-page {
+  text-align: left;
+  padding: 15px;
+}
+
+/* .front-image {
+  position: relative;
+  top: -3px;
+} */
+
 /* .image {
   border: 1px solid #ddd;
   border-radius: 4px;

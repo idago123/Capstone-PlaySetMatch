@@ -5,6 +5,9 @@ import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Navbar } from 'react-bootstrap/Navbar';
 import { Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import SportsTennisTwoToneIcon from '@material-ui/icons/SportsTennisTwoTone';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +25,11 @@ const Header = () => {
     <Navbar bg="warning" variant="dark">
       <Navbar.Brand href="#home">
         <Link to="/">
-          <h1> PlaySetMatch </h1>
+          <h1>
+            {' '}
+            PlaySetMatch <SportsTennisTwoToneIcon /> <AccessTimeIcon />{' '}
+            <GroupAddIcon />{' '}
+          </h1>
         </Link>
       </Navbar.Brand>
       <Nav className="mr-auto">

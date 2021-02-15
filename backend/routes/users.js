@@ -132,9 +132,16 @@ router.route('/matches/:id').get((req, res) => {
         if (u.id === user.id) {
           continue;
         }
-        if (u.zipcode === user.zipcode) {
+        if (
+          (u.zipcode === user.zipcode || u.city === user.city) &&
+          u.availability === user.availability &&
+          u.skillLevel === user.skillLevel
+        ) {
           matches.push(u);
         }
+        // if (u.zipcode === user.zipcode) {
+        //   matches.push(u);
+        // }
       }
       res.status(200).json(matches);
     })
