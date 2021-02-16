@@ -31,7 +31,7 @@ const NewUserForm = (props) => {
       bio,
       image,
     };
-    console.log(newUser);
+
     const loginRes = await axios.post(`${BASE_URL}/users/add`, newUser);
 
     if (loginRes.status === 200) {
@@ -62,11 +62,16 @@ const NewUserForm = (props) => {
           <Form.Group as={Col} controlId="skillLevel">
             <Form.Label>Skill Level</Form.Label>
             <Form.Control
-              type="text"
-              placeholder="Skill Level"
-              value={skill}
               onChange={(event) => setSkill(event.target.value)}
-            />
+              as="select"
+              value={skill}
+              defaultValue="Choose..."
+            >
+              <option>Choose...</option>
+              <option>beginner</option>
+              <option>intermediate</option>
+              <option>advanced</option>
+            </Form.Control>
           </Form.Group>
         </Form.Row>
 

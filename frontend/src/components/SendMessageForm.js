@@ -9,7 +9,6 @@ import { Form, Button, Alert, Container, Col } from 'react-bootstrap';
 const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
 const SendMessageForm = (props) => {
-  console.log(props);
   const { userData, setUserData } = useContext(UserContext);
 
   const [message, setMessage] = useState('');

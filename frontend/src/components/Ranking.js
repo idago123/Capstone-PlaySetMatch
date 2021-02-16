@@ -44,7 +44,6 @@ const Ranking = () => {
   let ranksort = sortable.sort(function (a, b) {
     return b[1] - a[1];
   });
-  console.log(ranksort);
 
   return (
     <div className="ranking-table">
@@ -58,7 +57,7 @@ const Ranking = () => {
         </Link>{' '}
         their matches. Rankings are based on number of wins.{' '}
       </p>
-      {/* <table class="table table-dark table-hover"> */}
+
       <table class="table">
         <thead class="thead-dark">
           <tr>

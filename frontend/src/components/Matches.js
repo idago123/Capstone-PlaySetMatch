@@ -10,7 +10,6 @@ const Matches = (props) => {
   const { userData, setUserData } = useContext(UserContext);
   const userMatchesList = props.userMatches.map((user, i) => {
     return (
-      // <li key={user._id}>
       <Match
         username={user.username}
         availability={user.availability}
@@ -23,7 +22,6 @@ const Matches = (props) => {
         id={user._id}
         key={user._id}
       />
-      // </li>
     );
   });
 

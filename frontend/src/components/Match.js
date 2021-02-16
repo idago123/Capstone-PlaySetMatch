@@ -4,7 +4,6 @@ import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
 
 const Match = (props) => {
-  console.log(props);
   return (
     <div className="ranking-table">
       <table class="table">

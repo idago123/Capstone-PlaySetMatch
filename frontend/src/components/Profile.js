@@ -3,6 +3,7 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 import { Container, Col, Row, Image, Button, Form } from 'react-bootstrap';
+import tennisball3 from '../image/tennisball3.png';
 
 // const BASE_URL = 'http://localhost:5000';
 const BASE_URL = 'http://play-set-match-api.herokuapp.com';
@@ -33,7 +34,7 @@ const Profile = () => {
       `${BASE_URL}/users/update/${userData.user.id}`,
       editUser
     );
-    console.log({ editResponse });
+
     setUserData({
       user: { ...userData.user, ...editUser }, // spreading old user data into a new object, adding changed fields
     });
@@ -52,17 +53,19 @@ const Profile = () => {
               onChange={(event) => setUsername(event.target.value)}
             />
           </Form.Group>
-
           <Form.Group as={Col} controlId="skillLevel">
             <Form.Label>Skill Level</Form.Label>
             <Form.Control
-              type="text"
-              //   placeholder={
-              //     userData.user.skillLevel ? `${userData.user.skillLevel}` : ''
-              //   }
-              value={skill}
               onChange={(event) => setSkill(event.target.value)}
-            />
+              as="select"
+              value={skill}
+              defaultValue="Choose..."
+            >
+              <option>Choose...</option>
+              <option>beginner</option>
+              <option>intermediate</option>
+              <option>advanced</option>
+            </Form.Control>
           </Form.Group>
         </Form.Row>
 
@@ -124,12 +127,11 @@ const Profile = () => {
           </Form.Group>
         </Form.Row>
         <Button variant="primary" type="submit">
-          Submit
+          Edit Profile
         </Button>
       </Form>
     );
   };
-  console.log(userData);
 
   return (
     <div className="edit-form">
@@ -141,57 +143,72 @@ const Profile = () => {
               <div className="current-info">
                 <Row>
                   <Col>
-                    <h2>Username: {userData.user.username}</h2>
+                    {' '}
+                    <h4 className="profile-field">Username: </h4>{' '}
+                    <h4>{userData.user.username} </h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>Bio: {userData.user.bio}</h2>
+                    <h4 className="profile-field">About: </h4>
+                    <h4> {userData.user.bio}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>Availability: {userData.user.availability}</h2>
+                    <h4 className="profile-field">Availability: </h4>
+                    <h4> {userData.user.availability}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>Skill Level: {userData.user.skillLevel}</h2>
+                    <h4 className="profile-field">Skill Level: </h4>
+                    <h4>{userData.user.skillLevel}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>City: {userData.user.city}</h2>
+                    <h4 className="profile-field">City: </h4>{' '}
+                    <h4> {userData.user.city}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>Zipcode: {userData.user.zipcode}</h2>
+                    <h4 className="profile-field">Zipcode: </h4>{' '}
+                    <h4>{userData.user.zipcode}</h4>
                   </Col>
                 </Row>
                 <Row>
                   <Col>
-                    <h2>
-                      Image: <Image src={userData.user.image} thumbnail />
-                    </h2>
+                    <h4 className="profile-field"> Image: </h4>{' '}
+                    <h4>
+                      {' '}
+                      <Image src={userData.user.image} thumbnail />
+                    </h4>
                   </Col>
                 </Row>
               </div>
               <div className="edit form">
                 <Col>
                   {' '}
-                  <Button
+                  {/* <Button
                     variant="dark"
                     type="submit"
                     onClick={() => setToggle(!toggle)}
                   >
                     Edit Profile
-                  </Button>
+                  </Button> */}
                 </Col>
               </div>
             </Container>
           </Col>
-          <Col>{toggle ? editForm() : null}</Col>
+          <Col>
+            {/* {toggle ? editForm() : null} */}
+            {editForm()}
+            <div className="front-image">
+              <Image src={tennisball3} alt="tennis" fluid />{' '}
+            </div>
+          </Col>
         </Row>
       </Container>
     </div>

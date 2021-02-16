@@ -20,7 +20,6 @@ const Calendar = () => {
   const allGames = async () => {
     try {
       const apiListGames = await axios.get(`${BASE_URL}/match`);
-      console.log(apiListGames.data);
       const schedule = apiListGames.data
         .filter((match) => {
           return userData.user.username === match.username;
@@ -29,9 +28,7 @@ const Calendar = () => {
           return [match.date, match.tennisBuddy, match.winner, match.location];
         });
       setResults(schedule);
-      console.log(schedule);
     } catch (error) {
-      console.log(error);
       setErrorMessage(error.message);
     }
   };
@@ -39,11 +36,10 @@ const Calendar = () => {
     allGames();
   }, []);
 
-  console.log({ results });
   let ranksort = results.sort(function (a, b) {
     return b[1] - a[1];
   });
-  console.log(results);
+
   return (
     <div className="ranking-table">
       <h1 className="rank-title">Past or Upcoming Events</h1>
