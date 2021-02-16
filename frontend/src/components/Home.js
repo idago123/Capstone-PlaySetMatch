@@ -24,8 +24,6 @@ const Home = (props) => {
       <Row>
         <Col xs={8}>
           {' '}
-          {/* <div className="container-home">
-            <div className="small-container"> */}
           <div className="front-page">
             <h1 className="larger-statement">
               A match-making, scheduling tool and social platform for tennis
@@ -49,10 +47,7 @@ const Home = (props) => {
               <GroupAddIcon /> Match:{' '}
             </h2>
             <h3>With the perfect practice buddy. </h3>
-            {/* <footer className="footer">
-          <p> Ida Goitom</p>
-        </footer> */}
-            {/* </div> */}
+
             {userData.user ? (
               ''
             ) : (
@@ -60,29 +55,12 @@ const Home = (props) => {
                 Register
               </Button>
             )}
-            {/* </div> */}
           </div>
         </Col>
         <Col>
           <div className="front-image">
-            <Image
-              src={tennisball3}
-              // "https://cdn.pixabay.com/photo/2014/04/03/10/11/tennis-310075_1280.png"
-              // "https://cdn.pixabay.com/photo/2013/07/13/01/19/tennis-court-155517_1280.png"
-              // "https://cdn.pixabay.com/photo/2017/01/31/16/55/female-2025511_1280.png"
-              // "https://cdn.pixabay.com/photo/2016/09/21/07/59/tennis-1684285_1280.png"
-              // "            https://cdn.pixabay.com/photo/2019/03/09/22/54/female-4045177_1280.png"            alt="tennis"
-              fluid
-            />
-            <Image
-              src={tennisPlayers}
-              // "https://cdn.pixabay.com/photo/2014/04/03/10/11/tennis-310075_1280.png"
-              // "https://cdn.pixabay.com/photo/2013/07/13/01/19/tennis-court-155517_1280.png"
-              // "https://cdn.pixabay.com/photo/2017/01/31/16/55/female-2025511_1280.png"
-              // "https://cdn.pixabay.com/photo/2016/09/21/07/59/tennis-1684285_1280.png"
-              alt="tennis-court"
-              fluid
-            />
+            <Image src={tennisball3} alt="tennis" fluid />
+            <Image src={tennisPlayers} alt="tennis-court" fluid />
           </div>
         </Col>
       </Row>

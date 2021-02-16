@@ -19,7 +19,6 @@ const AuthOptions = () => {
   const inbox = () => history.push('/Inbox');
   const profile = () => history.push('/Profile');
 
-  // const matchList = () => history.push('/matches'); //new
   const logout = () => {
     setUserData({
       token: undefined,
@@ -34,8 +33,6 @@ const AuthOptions = () => {
       {userData.user ? (
         <>
           <h3>{`Hello, ${userData.user.username}!`}</h3>
-
-          {/* // figure out the css that will make a side bar for when userdata.user === true vvv */}
           <button onClick={results}> Record Your Match </button>
           <button onClick={ranking}> Rankings </button>
           <button onClick={matches}> Find Your Tennis Buddy</button>
@@ -46,9 +43,7 @@ const AuthOptions = () => {
         </>
       ) : (
         <>
-          {/* <button onClick={login}> Log in </button> */}
           <Login />
-          {/* <button onClick={register}> Register</button> */}
         </>
       )}
     </nav>

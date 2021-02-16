@@ -7,8 +7,6 @@ const Match = (props) => {
   console.log(props);
   return (
     <div className="ranking-table">
-      {/* <Table striped bordered hover variant="dark">
-        <thead> */}
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -28,7 +26,6 @@ const Match = (props) => {
             <td class="table-warning">{props.index}</td>
             <td class="table-warning">
               <Image src={props.image} thumbnail />
-              {/* <img src={props.image} alt="user photo" /> */}
             </td>
             <td class="table-warning">{props.username}</td>
             <td class="table-warning">{props.bio}</td>
@@ -45,7 +42,6 @@ const Match = (props) => {
           </tr>
         </tbody>
       </table>
-      {/* </Table> */}
     </div>
   );
 };

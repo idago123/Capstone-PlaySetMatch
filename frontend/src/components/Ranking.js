@@ -6,20 +6,17 @@ import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory, Link } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://play-set-match-api.herokuapp.com';
+
 const Ranking = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-  /* {
-    'jordan': 2
-    'ida': 5
-}*/
 
   const gameResultsList = async () => {
     try {
       const apiListGames = await axios.get(`${BASE_URL}/match`);
-      // console.log(apiListGames);
       const rankings = apiListGames.data.reduce((wins, match) => {
         const winner = match.winner;
         if (wins[winner]) {
@@ -29,23 +26,21 @@ const Ranking = () => {
         }
         return wins;
       }, {});
-      console.log(rankings);
+
       setResults(rankings);
     } catch (error) {
-      console.log(error);
       setErrorMessage(error.message);
     }
   };
   useEffect(() => {
     gameResultsList();
   }, []);
-  // console.log({ results });
 
   let sortable = [];
   for (const [key, value] of Object.entries(results)) {
     sortable.push([key, value]);
   }
-  // console.log(sortable);
+
   let ranksort = sortable.sort(function (a, b) {
     return b[1] - a[1];
   });

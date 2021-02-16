@@ -3,10 +3,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory, Link } from 'react-router-dom';
-// import { Form } from 'react-bootstrap';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
 const GameResultForm = (props) => {
   const [username, setUsername] = useState('');
@@ -17,7 +17,6 @@ const GameResultForm = (props) => {
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
-  // const onFormSubmit = (event) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
 

@@ -3,17 +3,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
-// import Matches from './Matches';
 import Match from './Match';
 
-// here we will need something that says: if user exists, show these matches
+// if user exists, show these matches
 const Matches = (props) => {
-  // create button, if button is clicked. call the prop and iterate through matches, match should hace its own component
-  console.log(props);
   const { userData, setUserData } = useContext(UserContext);
-  //   return <h1> homepage</h1>;
   const userMatchesList = props.userMatches.map((user, i) => {
-    console.log(user);
     return (
       // <li key={user._id}>
       <Match
@@ -31,7 +26,6 @@ const Matches = (props) => {
       // </li>
     );
   });
-  // return <ul className="match-list">{userMatchesList}</ul>;
 
   return (
     <div>
@@ -41,7 +35,6 @@ const Matches = (props) => {
         * All matches are based on availability, skill level and location. Find
         and reach out to your next tennis buddy below.
       </p>
-      {/* {(userData.user && (props.userMatches.length > 0)) ( */}
 
       {props.userMatches.length > 0 ? (
         userMatchesList

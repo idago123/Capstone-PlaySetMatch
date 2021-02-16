@@ -5,9 +5,9 @@ import UserContext from '../context/UserContent';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
-// import { Form } from 'react-bootstrap';
 const NewUserForm = (props) => {
   const [username, setUsername] = useState('');
   const [skill, setSkill] = useState('');

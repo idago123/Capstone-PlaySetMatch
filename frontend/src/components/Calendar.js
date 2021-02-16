@@ -8,7 +8,8 @@ import { useHistory } from 'react-router-dom';
 import { Schedule } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
 const Calendar = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -23,7 +24,6 @@ const Calendar = () => {
       const schedule = apiListGames.data
         .filter((match) => {
           return userData.user.username === match.username;
-          // return `Date: ${match.date}, Tennis Buddy: ${match.tennisBuddy}`; //add location?
         })
         .map((match) => {
           return [match.date, match.tennisBuddy, match.winner, match.location];
@@ -76,10 +76,6 @@ const Calendar = () => {
         </tbody>
       </table>
     </div>
-    // <div>
-    //   <h1> My Calendar</h1>
-    //   <h2>{results}</h2>
-    // </div>
   );
 };
 export default Calendar;

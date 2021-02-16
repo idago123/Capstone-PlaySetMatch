@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const BASE_URL = 'http://localhost:5000';
-// const BASE_URL = 'http://play-set-match-api.herokuapp.com';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
@@ -48,30 +48,8 @@ const Login = (props) => {
         <Button variant="dark" type="submit">
           Log In
         </Button>
-        {/* <Button variant="outline-info" type="submit" value="Log In">
-          Log In
-         </Button> */}
       </Form>
     </Container>
-
-    // <form
-    //   className="new-user-form"
-    //   onSubmit={onFormSubmit}
-    //   data-testid="NewUserForm--form"
-    // >
-    //   <div>
-    //     <label htmlFor="username">Username:</label>
-    //     <input
-    //       id="username"
-    //       name="username"
-    //       onChange={(event) => setUsername(event.target.value)}
-    //       value={username}
-    //       className="username"
-    //     />
-    //   </div>
-
-    //   <input type="submit" value="Log In" />
-    // </form>
   );
 };
 

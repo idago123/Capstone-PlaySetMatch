@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthOptions from './AuthOptions';
-// import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
-// import { Navbar } from 'react-bootstrap/Navbar';
 import { Nav, Navbar } from 'react-bootstrap';
 import SportsTennisTwoToneIcon from '@material-ui/icons/SportsTennisTwoTone';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
