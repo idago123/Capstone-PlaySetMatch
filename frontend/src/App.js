@@ -18,11 +18,13 @@ import Axios from 'axios';
 import Inbox from './components/Inbox';
 import { Badge } from '@material-ui/core';
 import './components/style.css';
+import Profile from './components/Profile';
+
 //match function, gets collection of user data, save matches field
 
 // const BASE_URL = 'https://play-set-match-api.herokuapp.com';
-// const BASE_URL = 'http://localhost:5000';
-const BASE_URL = 'http://play-set-match-api.herokuapp.com';
+const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 
 // process.env.API_URL
 function App() {
@@ -114,6 +116,7 @@ function App() {
             <Route path="/ResultsForm" component={GameResultForm} />
             <Route path="/Rankings" component={Ranking} />
             <Route path="/Calendar" component={Calendar} />
+            <Route path="/Profile" component={Profile} />
             <Route path="/Inbox">
               <Inbox />
             </Route>

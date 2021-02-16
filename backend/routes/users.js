@@ -16,8 +16,9 @@ router.route('/add').post((req, res) => {
   const zipcode = req.body.zipcode;
   const city = req.body.city;
   const image = req.body.image;
-  const skillLevel = req.body.skillLevel;
-
+  const skillLevel = req.body.skill;
+  const bio = req.body.bio;
+  console.log(req.body);
   const newUser = new User({
     username,
     availability,
@@ -25,6 +26,7 @@ router.route('/add').post((req, res) => {
     city,
     image,
     skillLevel,
+    bio,
   });
   console.log(newUser);
   newUser
@@ -124,9 +126,9 @@ router.route('/tokenIsValid').post(async (req, res) => {
 router.route('/matches/:id').get((req, res) => {
   const userPromise = User.findById(req.params.id);
   const usersPromise = User.find();
+  console.log(userPromise, usersPromise);
   Promise.all([userPromise, usersPromise])
     .then(([user, users]) => {
-      console.log(user, users);
       const matches = [];
       for (const u of users) {
         if (u.id === user.id) {

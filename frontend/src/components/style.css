@@ -196,6 +196,11 @@ ul {
   padding: 15px;
 }
 
+.current-profile {
+  position: relative;
+  top: -70x;
+  border-style: solid;
+}
 /* .front-image {
   position: relative;
   top: -3px;

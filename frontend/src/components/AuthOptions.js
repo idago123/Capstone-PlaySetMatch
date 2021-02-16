@@ -15,6 +15,7 @@ const AuthOptions = () => {
   const matches = () => history.push('/Matches');
   const calendar = () => history.push('/Calendar');
   const inbox = () => history.push('/Inbox');
+  const profile = () => history.push('/Profile');
 
   // const matchList = () => history.push('/matches'); //new
   const logout = () => {
@@ -38,7 +39,7 @@ const AuthOptions = () => {
           <button onClick={matches}> Find Your Tennis Buddy</button>
           <button onClick={calendar}> My Calendar</button>
           <button onClick={inbox}> Inbox </button>
-
+          <button onClick={profile}> Profile </button>
           <button onClick={logout}> Logout </button>
         </>
       ) : (
