@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContent';
 import Home from './Home';
 import Login from './Login';
+import Image from 'react-bootstrap/Image';
+
 const AuthOptions = () => {
   const { userData, setUserData } = useContext(UserContext);
 

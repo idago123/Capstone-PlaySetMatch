@@ -63,7 +63,7 @@ const Profile = () => {
           <Form.Group as={Col} controlId="skillLevel">
             <Form.Label>Skill Level</Form.Label>
             <Form.Control
-              type="skill"
+              type="text"
               placeholder={
                 userData.user.skillLevel ? `${userData.user.skillLevel}` : ''
               }
@@ -175,7 +175,9 @@ const Profile = () => {
           </Row>
           <Row>
             <Col>
-              <h2>Image: {userData.user.image}</h2>
+              <h2>
+                Image: <Image src={userData.user.image} thumbnail />
+              </h2>
             </Col>
           </Row>
         </div>

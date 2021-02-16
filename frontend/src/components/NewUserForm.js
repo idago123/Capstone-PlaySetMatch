@@ -47,7 +47,7 @@ const NewUserForm = (props) => {
 
   return (
     <div>
-      <h1 className="rank-title"> Register Form </h1>
+      <h1 className="rank-title"> Registration Form </h1>
       <Form className="register-form" onSubmit={onFormSubmit}>
         <Form.Row>
           <Form.Group as={Col} controlId="formUsername">
