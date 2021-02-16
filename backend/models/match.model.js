@@ -13,7 +13,6 @@ const matchSchema = new Schema({
   date: {
     type: String,
     required: true,
-    // unique: true,
   },
   tennisBuddy: {
     type: String,

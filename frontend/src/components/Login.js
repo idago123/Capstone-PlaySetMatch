@@ -25,7 +25,6 @@ const Login = (props) => {
     localStorage.setItem('auth-token', loginRes.data.token);
     history.push('/');
   };
-  console.log(process);
 
   return (
     <Container>

@@ -27,7 +27,6 @@ const userSchema = new Schema({
   },
   inbox: {
     type: Array,
-    // [{date: Date.now, sent_user: userdata.user.id, message: ''}]
   },
   sentMsg: {
     type: Array,
