@@ -48,7 +48,7 @@ function App() {
         const userRes = await Axios.get(`${BASE_URL}/users`, {
           headers: { 'x-auth-token': token },
         });
-        console.log(userRes.data);
+        console.log({ userData: tokenRes.data });
         setUserData({
           token,
           user: tokenRes.data,

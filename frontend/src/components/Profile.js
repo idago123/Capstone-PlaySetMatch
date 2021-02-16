@@ -10,7 +10,7 @@ const BASE_URL = 'http://play-set-match-api.herokuapp.com';
 const Profile = () => {
   const { userData, setUserData } = useContext(UserContext);
   const [username, setUsername] = useState(userData.user.username);
-  const [skill, setSkill] = useState(userData.user.setSkill);
+  const [skill, setSkill] = useState(userData.user.skillLevel);
   const [availability, setAvailability] = useState(userData.user.availability);
   const [bio, setBio] = useState(userData.user.bio);
   const [image, setImage] = useState(userData.user.image);
@@ -18,34 +18,25 @@ const Profile = () => {
   const [zipcode, setZipcode] = useState(userData.user.zipcode);
   const [toggle, setToggle] = useState(false);
 
-  const onFormSubmit = () => {
-    // event.preventDefault();
+  const onFormSubmit = async (event) => {
+    event.preventDefault();
     const editUser = {
       username,
-      skill,
+      skillLevel: skill,
       availability,
       city,
       zipcode,
       bio,
       image,
     };
-    const editResponse = axios.post(
-      `${BASE_URL}/update/${userData.user.id}`,
+    const editResponse = await axios.post(
+      `${BASE_URL}/users/update/${userData.user.id}`,
       editUser
     );
-
+    console.log({ editResponse });
     setUserData({
-      token: editResponse.data.token,
-      user: editResponse.data.user,
+      user: { ...userData.user, ...editUser }, // spreading old user data into a new object, adding changed fields
     });
-    // if (editResponse.status === 200) {
-    //   const editResponse = axios.post(`${BASE_URL}/users/login`, editUser);
-    //   setUserData({
-    //     token: editResponse.data.token,
-    //     user: editResponse.data.user,
-    //   });
-    //   localStorage.setItem('auth-token', editResponse.data.token);
-    // }
   };
 
   const editForm = () => {
@@ -66,9 +57,9 @@ const Profile = () => {
             <Form.Label>Skill Level</Form.Label>
             <Form.Control
               type="text"
-              placeholder={
-                userData.user.skillLevel ? `${userData.user.skillLevel}` : ''
-              }
+              //   placeholder={
+              //     userData.user.skillLevel ? `${userData.user.skillLevel}` : ''
+              //   }
               value={skill}
               onChange={(event) => setSkill(event.target.value)}
             />
@@ -141,63 +132,68 @@ const Profile = () => {
   console.log(userData);
 
   return (
-    <div className="register-form">
+    <div className="edit-form">
       <h1 className="rank-title"> View or Edit Your Profile Information</h1>
-      <Container className="current-profile">
-        <div className="current-info">
-          <Row>
-            <Col>
-              <h2>Username: {userData.user.username}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>Bio: {userData.user.bio}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>Availability: {userData.user.availability}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>Skill Level: {userData.user.skillLevel}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>City: {userData.user.city}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>Zipcode: {userData.user.zipcode}</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h2>
-                Image: <Image src={userData.user.image} thumbnail />
-              </h2>
-            </Col>
-          </Row>
-        </div>
-        <div className="edit form">
+      <Container>
+        <Row>
           <Col>
-            {' '}
-            <Button
-              variant="dark"
-              type="submit"
-              onClick={() => setToggle(!toggle)}
-            >
-              Edit Profile
-            </Button>
+            <Container className="current-profile">
+              <div className="current-info">
+                <Row>
+                  <Col>
+                    <h2>Username: {userData.user.username}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>Bio: {userData.user.bio}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>Availability: {userData.user.availability}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>Skill Level: {userData.user.skillLevel}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>City: {userData.user.city}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>Zipcode: {userData.user.zipcode}</h2>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <h2>
+                      Image: <Image src={userData.user.image} thumbnail />
+                    </h2>
+                  </Col>
+                </Row>
+              </div>
+              <div className="edit form">
+                <Col>
+                  {' '}
+                  <Button
+                    variant="dark"
+                    type="submit"
+                    onClick={() => setToggle(!toggle)}
+                  >
+                    Edit Profile
+                  </Button>
+                </Col>
+              </div>
+            </Container>
           </Col>
-        </div>
+          <Col>{toggle ? editForm() : null}</Col>
+        </Row>
       </Container>
-      {toggle ? editForm() : null}
-      {/* {editForm ? editForm() : ''} */}
     </div>
   );
 };

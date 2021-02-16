@@ -16,7 +16,7 @@ const Inbox = () => {
     let fullDate = month + '/' + day + '/' + year;
 
     return (
-      <div className="ranking-table">
+      <div className="inbox-table">
         <table class="table table-sm table-dark">
           <thead>
             <tr class="table-light">
@@ -29,11 +29,11 @@ const Inbox = () => {
           </thead>
           <tbody>
             <tr>
-              <td class="table-success">{index + 1}</td>
-              <td class="table-success">{fullDate}</td>
-              <td class="table-success">{data.sender_name}</td>
-              <td class="table-success">{data.message}</td>
-              <td class="table-success">
+              <td className="table-success">{index + 1}</td>
+              <td className="table-success">{fullDate}</td>
+              <td className="table-success">{data.sender_name}</td>
+              <td className="table-success">{data.message}</td>
+              <td className="table-success">
                 <SendMessageForm
                   toUserId={data.from}
                   sender_name={data.username}
@@ -54,7 +54,7 @@ const Inbox = () => {
     let year = newdate.getFullYear();
     let fullDate = month + '/' + day + '/' + year;
     return (
-      <div className="ranking-table">
+      <div className="inbox-table">
         <table class="table table-sm table-dark">
           <thead>
             <tr class="table-dark">

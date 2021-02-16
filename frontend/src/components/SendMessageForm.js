@@ -45,6 +45,7 @@ const SendMessageForm = (props) => {
             value={message}
             as="textarea"
             rows={2}
+            className="message-box"
           />
         </Form.Group>
       </div>

@@ -10,15 +10,15 @@ const Match = (props) => {
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th>#</th>
-            <th>Avatar</th>
-            <th>Username</th>
-            <th>About</th>
-            <th>Skill Level</th>
-            <th>Availability</th>
-            <th>City</th>
-            <th>Zipcode</th>
-            <th>Message</th>
+            <th colSpan="1">#</th>
+            <th colSpan="1">Avatar</th>
+            <th colSpan="1">Username</th>
+            <th colSpan="1">About</th>
+            <th colSpan="1">Skill Level</th>
+            <th colSpan="1">Availability</th>
+            <th colSpan="1">City</th>
+            <th colSpan="1">Zipcode</th>
+            <th colSpan="3">Message</th>
           </tr>
         </thead>
         <tbody>
