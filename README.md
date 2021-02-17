@@ -16,11 +16,12 @@ As a user, I can...
 ## Tech Stack
 
 ### Front End
-- React
+- React (JavaScript)
 - React Bootstrap
 - Material UI
 ### Back End
-- Express/Node.js
+- Express
+- Node.js
 ### Database
 - MongoDB
 ### Deployment
