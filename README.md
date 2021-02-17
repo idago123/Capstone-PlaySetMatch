@@ -31,6 +31,7 @@ As a user, I can...
 You can view this app here: http://playsetmatch.herokuapp.com/ on a computer or mobile device. 
 
 This project was bootstrapped with Create React App
+
 Clone this repository and run: 
 ### `npm install`
 ### `npm start`
