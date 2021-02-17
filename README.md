@@ -41,3 +41,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+## Learning Goals
+
+In the capstone project I will...
+- Demonstrate self-direction, time management, and independent learning
+- Learn and implement new technologies
+- Complete a product lifecycle from conception to delivery
+- Utilize agile practices learned to assist in project completion
