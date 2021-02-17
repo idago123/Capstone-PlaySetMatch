@@ -23,9 +23,8 @@ As a user, I can...
 - Express/Node.js
 ### Datastore
 - MongoDB
-### Front End and Back End Deployment
-- Heroku 
-- http://playsetmatch.herokuapp.com/
+### Deployment
+- Heroku: http://playsetmatch.herokuapp.com/
 
 
 ### `npm start`
