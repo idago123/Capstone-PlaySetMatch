@@ -21,7 +21,7 @@ As a user, I can...
 - Material UI
 ### Back End
 - Express/Node.js
-### Datastore
+### Database
 - MongoDB
 ### Deployment
 - Heroku: http://playsetmatch.herokuapp.com/
