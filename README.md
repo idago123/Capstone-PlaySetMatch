@@ -26,10 +26,16 @@ As a user, I can...
 ### Deployment
 - Heroku: http://playsetmatch.herokuapp.com/
 
+## Installation
 
+You can view this app here: http://playsetmatch.herokuapp.com/ on a computer or mobile device. 
+
+This project was bootstrapped with Create React App
+Clone this repository and run: 
+### `npm install`
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
