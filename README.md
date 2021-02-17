@@ -1,6 +1,6 @@
 # PlaySetMatch
 
-PlaySetMatch is a social platform dedicated to people interested in playing tennis and building community. This web app connects users through finding the perfect tennis buddy (based on interests, skill level, location and availability) and facilitating meetups. 
+PlaySetMatch is a social platform dedicated to people interested in playing tennis and building community. This web app connects users through finding the perfect tennis buddy (based on skill level, location and availability) and facilitating meetups. 
 
 ## Features
 As a user, I can... 
