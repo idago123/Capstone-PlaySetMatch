@@ -10,7 +10,7 @@ As a user, I can...
 - View my calendar, past and upcoming matches 
 - Message other users that I match with
 - View my inbox
-- Record matches to my account 
+- Record any meetups or matches to my account 
 - Get ranked on the site
 
 ## Tech Stack
