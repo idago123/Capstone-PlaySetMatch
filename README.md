@@ -26,6 +26,7 @@ As a user, I can...
 - MongoDB
 ### Deployment
 - Heroku: http://playsetmatch.herokuapp.com/
+- Heroku, back end: http://play-set-match-api.herokuapp.com
 
 ## Installation
 
