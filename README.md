@@ -5,7 +5,7 @@ PlaySetMatch is a social platform dedicated to people interested in playing tenn
 ## Features
 As a user, I can... 
 - Create, view and edit my own profile by providing the following information: picture, location, skill level, availability, and a short blurb about myself
-- View a list of users who match the information I've provided.
+- View a list of users who match the information I've provided
 - I can find a person to play tennis with, based on: availability, skill level, location 
 - View my calendar, past and upcoming matches 
 - Message other users that I match with
@@ -20,8 +20,7 @@ As a user, I can...
 - React Bootstrap
 - Material UI
 ### Back End
-- Express
-- Node.js
+- Express/Node.js
 ### Database
 - MongoDB
 ### Deployment
