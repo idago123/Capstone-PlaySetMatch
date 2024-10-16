@@ -12,8 +12,9 @@ As a user, I can...
 - View my inbox
 - Record any meetups or matches to my account 
 - Get ranked on the site
+  
 ## Demo
-- https://drive.google.com/file/d/1L0KnSMzYmjJGoP6cxDgOfxYsdXK78wQk/view
+- https://drive.google.com/file/d/1oc-ibjk_VH82ICX357q9h8dN5_LJVo7P/view?usp=sharing
 
 ## Tech Stack
 
